@@ -5,7 +5,7 @@
 [![image](https://img.shields.io/conda/vn/conda-forge/geolog.svg)](https://anaconda.org/conda-forge/geolog)
 
 
-**My senior year GEOG 510 project.**
+**My senior year GEOG 510 project. I will do something with this at some point. **
 
 
 -   Free software: MIT license
