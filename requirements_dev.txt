@@ -8,5 +8,3 @@ coverage
 Sphinx
 twine
 grip
-random
-string
