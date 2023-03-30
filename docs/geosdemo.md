@@ -1,4 +1,4 @@
  
 # geosdemo module
 
-::: geosdemo.geosdemo
+::: geolog.geolog
