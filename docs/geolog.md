@@ -1,4 +1,0 @@
- 
-# geolog module
-
-::: geolog.geolog
