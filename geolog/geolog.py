@@ -2,6 +2,11 @@
 
 import string
 import random
+import ipyleaflet
+
+class Map(ipyleaflet.map):
+    def __init__(self):
+        super().__init__()
 
 def generate_password(length=10):
     # Define the character sets to use in the password
