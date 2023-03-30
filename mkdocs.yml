@@ -50,3 +50,6 @@ nav:
     - Report Issues: https://github.com/whitson-buck/geolog/issues
     - API Reference:
           - geolog module: geolog.md
+    - Examples:
+        - examples/example.ipynb
+        - examples/ipyleaflet.ipynb
