@@ -1,7 +1,7 @@
 # Usage
 
-To use geosdemo in a project:
+To use geolog in a project:
 
 ```
-import geosdemo
+import geolog
 ```

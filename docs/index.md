@@ -1,11 +1,15 @@
-# Welcome to geosdemo
+# Welcome to geolog
 
-[![image](https://img.shields.io/pypi/v/geosdemo.svg)](https://pypi.python.org/pypi/geosdemo)
 
-**A python package for interactive mapping.**
+[![image](https://img.shields.io/pypi/v/geolog.svg)](https://pypi.python.org/pypi/geolog)
+
+
+**My senior year GEOG 510 project.**
+
 
 -   Free software: MIT license
--   Documentation: <https://geosdemo.gishub.org>
+-   Documentation: <https://whitson-buck.github.io/geolog>
+    
 
 ## Features
 
