@@ -2,6 +2,6 @@
 
 __author__ = """Whitson Buck"""
 __email__ = 'whitsonbuck@gmail.com'
-__version__ = '0.0.5'
+__version__ = '0.0.6'
 
 from .geolog import *
