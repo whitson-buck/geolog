@@ -4,7 +4,7 @@ import string
 import random
 import ipyleaflet
 
-class Map(ipyleaflet.map):
+class Map(ipyleaflet.Map):
     def __init__(self, center, zoom, **kwargs) -> None:
 
         if "scroll_wheel_zoom" not in kwargs:
@@ -16,7 +16,7 @@ class Map(ipyleaflet.map):
 
         if kwargs["layers_control"]:
             self.add_layers_control()
-            
+
     def add_layers_control(self,**kwargs):
         layers_control = ipyleaflet.Layerscontrol(**kwargs)
         self.add_control(layers_control)
