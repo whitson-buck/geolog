@@ -17,9 +17,25 @@ class Map(ipyleaflet.Map):
         if kwargs["layers_control"]:
             self.add_layers_control()
 
+        if "fullscreen_control" not in kwargs:
+            kwargs["fullscreen_control"]=True
+
+        if kwargs["fullscreen_control"]:
+            self.add_fullscreen_control()     
+
     def add_layers_control(self,**kwargs):
         layers_control = ipyleaflet.Layerscontrol(**kwargs)
         self.add_control(layers_control)
+
+    def add_tile_layer(self,url,name,attribution="",**kwargs):
+
+        tile_layer = ipyleaflet.TileLayer(
+            url=url,
+            name=name,
+            ttribution=attribution
+            **kwargs
+        )
+        self.add_layer(tile_layer)
 
 
 def generate_password(length=10):
