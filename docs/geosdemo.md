@@ -1,4 +1,0 @@
- 
-# geosdemo module
-
-::: geolog.geolog
