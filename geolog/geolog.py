@@ -2,14 +2,25 @@
 
 import string
 import random
-#import ipyleaflet
+import ipyleaflet
 
-#class Map(ipyleaflet.map):
-#    def __init__(self, center, zoom, **kwargs): -> None:
-#
-#        if "scroll_wheel_zoom" not in kwargs:
-#            kwargs["scroll_wheel_zoom"] = True
-#        super().__init__(self, center, zoom, **kwargs)
+class Map(ipyleaflet.map):
+    def __init__(self, center, zoom, **kwargs) -> None:
+
+        if "scroll_wheel_zoom" not in kwargs:
+            kwargs["scroll_wheel_zoom"] = True
+        super().__init__(self, center, zoom, **kwargs)
+
+        if "layers_control" not in kwargs:
+            kwargs["layers_control"]=True
+
+        if kwargs["layers_control"]:
+            self.add_layers_control()
+            
+    def add_layers_control(self,**kwargs):
+        layers_control = ipyleaflet.Layerscontrol(**kwargs)
+        self.add_control(layers_control)
+
 
 def generate_password(length=10):
     # Define the character sets to use in the password
