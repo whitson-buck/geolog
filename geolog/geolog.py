@@ -12,11 +12,11 @@ class Map(ipyleaflet.Map):
 
         super().__init__(center=center, zoom=zoom, **kwargs)
 
-        # if "layers_control" not in kwargs:
-        #     kwargs["layers_control"]=True
+        if "layers_control" not in kwargs:
+            kwargs["layers_control"]=True
 
-        # if kwargs["layers_control"]:
-        #     self.add_layers_control()
+        if kwargs["layers_control"]:
+            self.add_layers_control()
 
         if "fullscreen_control" not in kwargs:
             kwargs["fullscreen_control"]=True  
@@ -48,7 +48,7 @@ class Map(ipyleaflet.Map):
         fullscreen_control = ipyleaflet.FullScreenControl(position=position)
         self.add_control(fullscreen_control)
     
-    def add_search_control(self,position="topleft",**kwargs):
+    def add_search_control(self,position="bottomleft",**kwargs):
         """Adds search control to the map.
         
         Args: 
@@ -104,6 +104,47 @@ class Map(ipyleaflet.Map):
         }
 
         self.add_control(draw_control)
+
+    def add_tile_layer(self, url, name, attribution="",**kwargs):
+        """
+        Adds tile layer to the map.
+
+        Args:
+            url - URL of tile layer
+            name - name of the tile layer
+            attribution - optional, adds attribution to map
+        """
+        tile_layer = ipyleaflet.TileLayer(
+            url=url,
+            name=name,
+            attribution=attribution,
+            **kwargs
+        )
+        self.add_layer(tile_layer)
+
+    def add_basemap(self, basemap, **kwargs):
+        """
+        More user-friendly way to specify basemap.
+
+        Args:
+            basemap - basemap of user choice.
+        """
+        import xyzservices.providers as xyz
+        
+        if basemap.lower()=="roadmap":
+            url = 'https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}'
+            self.add_tile_layer(url,name=basemap,**kwargs)
+        elif basemap.lower()=="satellite":
+            url = 'https://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}'
+            self.add_tile_layer(url,name=basemap,**kwargs)
+        else:
+            try:
+                basemap=eval(f"xyz.{basemap}")
+                url = basemap.build_url()
+                attribution = basemap.attribution
+                self.add_tile_layer(url,name=basemap.name,attribution=attribution, **kwargs)
+            except:
+                raise ValueError(f"Basemap '{basemap}' not found.")
 
 
 # def generate_password(length=10):
