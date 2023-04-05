@@ -1,11 +1,14 @@
 # Changelog
 
-## v0.0.1 - Date
+## v0.0.8 - Date
 
 **Improvement**:
 
--   Does nothing better than ever before. New Website as of 2/23/2023
+-   It works now!
 
 **New Features**:
 
--   Will allow you to solve all your problems with the click of a button.
+-   Now features such as:
+    add_basemap
+    add_tile_layer
+    

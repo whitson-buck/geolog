@@ -130,7 +130,7 @@ class Map(ipyleaflet.Map):
             basemap - basemap of user choice.
         """
         import xyzservices.providers as xyz
-        
+
         if basemap.lower()=="roadmap":
             url = 'https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}'
             self.add_tile_layer(url,name=basemap,**kwargs)
