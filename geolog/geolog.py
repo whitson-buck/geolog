@@ -36,6 +36,15 @@ class Map(ipyleaflet.Map):
             **kwargs
         )
         self.add_layer(tile_layer)
+    
+    def add_search_control(self,position="topleft",**kwargs):
+        """Adds search control to the map.
+        
+        Args: 
+            Kwargs - Keyword arguments to pass to search control
+        """
+        if "url" not in kwargs:
+            kwargs["url"] = 'https://nominatim.openstreetmap.org/search?format=json&q={s}'
 
 
 # def generate_password(length=10):
