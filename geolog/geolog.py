@@ -5,7 +5,7 @@ import random
 import ipyleaflet
 
 class Map(ipyleaflet.Map):
-    def __init__(self, center, zoom, **kwargs) -> None:
+    def __init__(self, center=[35,-90], zoom=5, **kwargs) -> None:
 
         if "scroll_wheel_zoom" not in kwargs:
             kwargs["scroll_wheel_zoom"] = True
