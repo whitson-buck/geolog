@@ -17,11 +17,14 @@ class Map(ipyleaflet.Map):
         if kwargs["layers_control"]:
             self.add_layers_control()
 
-        if "fullscreen_control" not in kwargs:
-            kwargs["fullscreen_control"]=True
+        # if "fullscreen_control" not in kwargs:
+        #     kwargs["fullscreen_control"]=True    
+        
+        if "add_search_control" not in kwargs:
+            kwargs["add_search_control"]=True
 
-        # if kwargs["fullscreen_control"]:
-        #     self.add_fullscreen_control()     
+        if kwargs["add_search_control"]:
+            self.add_search_control()
 
     def add_layers_control(self,**kwargs):
         layers_control = ipyleaflet.LayersControl(**kwargs)
