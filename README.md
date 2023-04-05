@@ -5,7 +5,7 @@
 [![image](https://img.shields.io/conda/vn/conda-forge/geolog.svg)](https://anaconda.org/conda-forge/geolog)
 
 
-**My senior year GEOG 510 project. I will do something with this at some point.**
+**My senior year GEOG 510 project. This is a package which uses functionality from ipyleaflet and will add more unique functions over the course of the semester.**
 
 
 -   Free software: MIT license
@@ -14,7 +14,8 @@
 
 ## Features
 
--   TODO
+-   add_draw_controls() to create shapes on your map
+-   more to come.
 
 ## Credits
 
