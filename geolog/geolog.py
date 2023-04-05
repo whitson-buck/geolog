@@ -45,6 +45,8 @@ class Map(ipyleaflet.Map):
         """
         if "url" not in kwargs:
             kwargs["url"] = 'https://nominatim.openstreetmap.org/search?format=json&q={s}'
+        search_control = ipyleaflet.SearchControl(position=position,**kwargs)
+        self.add_control(search_control)
 
 
 # def generate_password(length=10):
