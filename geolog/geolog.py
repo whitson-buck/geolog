@@ -3,6 +3,8 @@
 import string
 import random
 import ipyleaflet
+import folium
+import folium.plugins as plugins
 
 class Map(ipyleaflet.Map):
     def __init__(self, center=[35,-90], zoom=5, **kwargs) -> None:
@@ -172,6 +174,108 @@ class Map(ipyleaflet.Map):
             geojson = ipyleaflet.GeoJSON(data=data, **kwargs)
             self.add_layer(geojson)
 
+class Map(folium.Map):
+    """The Map class inherits folium.Map. By default, the Map will add OpenStreetMap as the basemap.
+    Returns:
+        object: folium map object.
+    """
+
+    def __init__(self, **kwargs):
+        # Default map center location and zoom level
+        latlon = [20, 0]
+        zoom = 2
+
+        # Interchangeable parameters between ipyleaflet and folium
+        # if "center" in kwargs:
+        #     kwargs["location"] = kwargs["center"]
+        #     kwargs.pop("center")
+        # if "location" in kwargs:
+        #     latlon = kwargs["location"]
+        # else:
+        #     kwargs["location"] = latlon
+
+        # if "zoom" in kwargs:
+        #     kwargs["zoom_start"] = kwargs["zoom"]
+        #     kwargs.pop("zoom")
+        # if "zoom_start" in kwargs:
+        #     zoom = kwargs["zoom_start"]
+        # else:
+        #     kwargs["zoom_start"] = zoom
+        # if "max_zoom" not in kwargs:
+        #     kwargs["max_zoom"] = 24
+
+        if "draw_export" not in kwargs:
+            kwargs["draw_export"] = False
+
+        if "height" in kwargs and isinstance(kwargs["height"], str):
+            kwargs["height"] = float(kwargs["height"].replace("px", ""))
+
+        if (
+            "width" in kwargs
+            and isinstance(kwargs["width"], str)
+            and ("%" not in kwargs["width"])
+        ):
+            kwargs["width"] = float(kwargs["width"].replace("px", ""))
+
+        height = None
+        width = None
+
+        if "height" in kwargs:
+            height = kwargs.pop("height")
+        else:
+            height = 600
+
+        if "width" in kwargs:
+            width = kwargs.pop("width")
+        else:
+            width = "100%"
+
+        super().__init__(**kwargs)
+        self.baseclass = "folium"
+
+        if (height is not None) or (width is not None):
+            f = folium.Figure(width=width, height=height)
+            self.add_to(f)
+
+        if "fullscreen_control" not in kwargs:
+            kwargs["fullscreen_control"] = True
+        if kwargs["fullscreen_control"]:
+            plugins.Fullscreen().add_to(self)
+
+        if "draw_control" not in kwargs:
+            kwargs["draw_control"] = True
+        if kwargs["draw_control"]:
+            plugins.Draw(export=kwargs.get("draw_export")).add_to(self)
+
+        if "search_control" not in kwargs:
+            kwargs["search_control"] = True
+        if kwargs["search_control"]:
+            plugins.Geocoder(collapsed=True, position="topleft").add_to(self)
+
+        if "layers_control" not in kwargs:
+            self.options["layersControl"] = True
+        else:
+            self.options["layersControl"] = kwargs["layers_control"]
+
+        self.fit_bounds([latlon, latlon], max_zoom=zoom)
+
+    def add_layer(self, layer):
+        """Adds a layer to the map.
+        Args:
+            layer (TileLayer): A TileLayer instance.
+        """
+        layer.add_to(self)
+
+    def add_layer_control(self):
+        """Adds layer control to the map."""
+        layer_ctrl = False
+        for item in self.to_dict()["children"]:
+            if item.startswith("layer_control"):
+                layer_ctrl = True
+                break
+        if not layer_ctrl:
+            folium.LayerControl().add_to(self)
+ 
 
 # def generate_password(length=10):
 #     # Define the character sets to use in the password
