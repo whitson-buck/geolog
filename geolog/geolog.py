@@ -33,20 +33,18 @@ class Map(ipyleaflet.Map):
             self.add_search_control()
 
     def add_layers_control(self,**kwargs):
+        """Layers control functionality
+        
+        """
         layers_control = ipyleaflet.LayersControl(**kwargs)
         self.add_control(layers_control)
-
-    def add_tile_layer(self,url,name,attribution="",**kwargs):
-
-        tile_layer = ipyleaflet.TileLayer(
-            url=url,
-            name=name,
-            ttribution=attribution
-            **kwargs
-        )
-        self.add_layer(tile_layer)
     
     def add_fullscreen_control(self,position="topleft"):
+        """Adds fullscreen control capability to the map.
+        
+        Args: 
+            position - where you want controls located.
+        """
         fullscreen_control = ipyleaflet.FullScreenControl(position=position)
         self.add_control(fullscreen_control)
     
@@ -148,31 +146,31 @@ class Map(ipyleaflet.Map):
             except:
                 raise ValueError(f"Basemap '{basemap}' not found.")
             
-        def add_shp(self, data, name='Shapefile', **kwargs):
-            """Adds a Shapefile layer to the map.
-            Args:
-                data (str): The path to the Shapefile.
-            """
-            import geopandas as gpd
-            gdf = gpd.read_file(data)
-            geojson = gdf.__geo_interface__
-            self.add_geojson(geojson, name=name, **kwargs)
+    def add_shp(self, data, name='Shapefile', **kwargs):
+        """Adds a Shapefile layer to the map.
+        Args:
+            data (str): The path to the Shapefile.
+        """
+        import geopandas as gpd
+        gdf = gpd.read_file(data)
+        geojson = gdf.__geo_interface__
+        self.add_geojson(geojson, name=name, **kwargs)
 
 
-        def add_geojson(self, data, **kwargs):
-            """Adds a GeoJSON layer to the map.
-            Args:
-                data (dict): The GeoJSON data.
-                kwargs: Keyword arguments to pass to the GeoJSON layer.
-            """
-            import json
+    def add_geojson(self, data, **kwargs):
+        """Adds a GeoJSON layer to the map.
+        Args:
+            data (dict): The GeoJSON data.
+            kwargs: Keyword arguments to pass to the GeoJSON layer.
+        """
+        import json
 
-            if isinstance(data, str):
-                with open(data, "r") as f:
-                    data = json.load(f)
+        if isinstance(data, str):
+            with open(data, "r") as f:
+                data = json.load(f)
 
-            geojson = ipyleaflet.GeoJSON(data=data, **kwargs)
-            self.add_layer(geojson)
+        geojson = ipyleaflet.GeoJSON(data=data, **kwargs)
+        self.add_layer(geojson)
 
 class Map(folium.Map):
     """The Map class inherits folium.Map. By default, the Map will add OpenStreetMap as the basemap.
@@ -275,7 +273,8 @@ class Map(folium.Map):
                 break
         if not layer_ctrl:
             folium.LayerControl().add_to(self)
- 
+
+
 
 # def generate_password(length=10):
 #     # Define the character sets to use in the password
