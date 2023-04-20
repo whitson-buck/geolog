@@ -1,2 +1,3 @@
 ipyleaflet
 folium
+httpx
