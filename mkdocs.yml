@@ -53,3 +53,5 @@ nav:
     - Examples:
         - examples/example.ipynb
         - examples/ipyleaflet.ipynb
+        - examples/add_image.ipynb
+        - examples/add_raster.ipynb
