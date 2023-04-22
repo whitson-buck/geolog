@@ -193,7 +193,7 @@ class Map(ipyleaflet.Map):
             except:
                 return "Not supported filetype"
             
-    def add_raster(self, url, name="raster",fit_bound = True, **kwargs):
+    def add_raster(self, url, name="raster",fit_bounds = True, **kwargs):
         """Adds raster to Geolog map
         
         Args:
@@ -204,10 +204,10 @@ class Map(ipyleaflet.Map):
         import httpx
         titiler_endpoint = "https://titiler.xyz"
 
-        r1 = httpx.get(f"{titiler_endpoint}/cog/info",params = {'url':url,}).json()
+        r1 = httpx.get(f"{titiler_endpoint}/cog/info",params = {'url': url,}).json()
         bounds = r1["bounds"]
 
-        r1 = httpx.get(f"{titiler_endpoint}/cog/tilejson.json",params = {'url':url,}).json()
+        r1 = httpx.get(f"{titiler_endpoint}/cog/tilejson.json",params = {'url': url,}).json()
         tile = r1["tiles"][0]
 
         bbox = [[bounds[1],bounds[0],bounds[3],bounds[2]]]
