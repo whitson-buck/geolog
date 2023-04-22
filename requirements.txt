@@ -2,3 +2,4 @@ ipyleaflet
 folium
 httpx
 geopandas
+Ipython
