@@ -214,7 +214,7 @@ class Map(ipyleaflet.Map):
         self.fit_bounds(bbox)
         self.add_tile_layer(url=tile, name=name, **kwargs)
 
-    def add_image(self, url, **kwargs):
+    def add_image(self, url, width, height, position = 'bottomright',**kwargs):
         """Adds image to Geolog map
         
         Args:
@@ -222,14 +222,8 @@ class Map(ipyleaflet.Map):
         """
         import ipywidgets
         from ipyleaflet import WidgetControl
-        from IPython import display
-        
-        logo = ipywidgets.HTML(
-            value='<img src="http://www.freshmap.co.nz/images/enlarge2.jpg" width="200" height="200">'
-        )
-        output_widget = ipywidgets.Output(layout={'border': '1px solid black'})
         output_widget.clear_output()
-        output_control = WidgetControl(widget=output_widget, position='bottomright')
-        self.add_control(output_control)
-        with output_widget:
-            display(logo)
+        output_widget = ipywidgets.Output(layout={'border': '1px solid black'})
+        widget = ipywidgets.HTML(value = f'<img src="{url}" width="{width}" height="{height}">')
+        control = WidgetControl(widget=widget, position=position)
+        self.add(control)
