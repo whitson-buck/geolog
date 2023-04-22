@@ -210,7 +210,7 @@ class Map(ipyleaflet.Map):
         r1 = httpx.get(f"{titiler_endpoint}/cog/tilejson.json",params = {'url': url,}).json()
         tile = r1["tiles"][0]
 
-        bbox = [[bounds[1],bounds[0],bounds[3],bounds[2]]]
+        bbox = [[bounds[1],bounds[0]],[bounds[3],bounds[2]]]
         self.fit_bounds(bbox)
         self.add_tile_layer(url=tile, name=name, **kwargs)
 
