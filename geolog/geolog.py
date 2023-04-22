@@ -222,8 +222,8 @@ class Map(ipyleaflet.Map):
         """
         import ipywidgets
         from ipyleaflet import WidgetControl
-        output_widget.clear_output()
         output_widget = ipywidgets.Output(layout={'border': '1px solid black'})
+        output_widget.clear_output()
         widget = ipywidgets.HTML(value = f'<img src="{url}" width="{width}" height="{height}">')
         control = WidgetControl(widget=widget, position=position)
         self.add(control)
