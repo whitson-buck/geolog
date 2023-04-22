@@ -3,3 +3,4 @@ folium
 httpx
 geopandas
 Ipython
+ipywidgets
