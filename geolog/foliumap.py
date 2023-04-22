@@ -163,22 +163,22 @@ class Map(folium.Map):
     
 #     return password
 
-def generate_ascii_image(width, height):
-    # Define the ASCII characters to use
-    ascii_chars = ['.', ',', ':', ';', '+', '*', '?', '%', 'S', '#', '@']
+# def generate_ascii_image(width, height):
+#     # Define the ASCII characters to use
+#     ascii_chars = ['.', ',', ':', ';', '+', '*', '?', '%', 'S', '#', '@']
     
-    # Generate the ASCII image
-    image = ''
-    for y in range(height):
-        for x in range(width):
-            # Choose a random ASCII character from the list
-            char = random.choice(ascii_chars)
-            # Add the character to the image
-            image += char
-        # Add a newline character at the end of each row
-        image += '\n'
+#     # Generate the ASCII image
+#     image = ''
+#     for y in range(height):
+#         for x in range(width):
+#             # Choose a random ASCII character from the list
+#             char = random.choice(ascii_chars)
+#             # Add the character to the image
+#             image += char
+#         # Add a newline character at the end of each row
+#         image += '\n'
     
-    return image
+#     return image
 
 class Text_Adventure():
     world = {
