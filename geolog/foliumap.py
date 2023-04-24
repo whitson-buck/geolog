@@ -180,78 +180,78 @@ class Map(folium.Map):
     
 #     return image
 
-class Text_Adventure():
-    world = {
-        'start': {
-            'description': 'You are standing at the entrance of a dark cave. There is a torch lying on the ground next to you.',
-            'exits': {
-                'north': 'tunnel',
-                'east': 'wall',
-                'west': 'cliff'
-            }
-        },
-        'tunnel': {
-            'description': 'You are in a narrow tunnel. The walls are damp and the air is musty.',
-            'exits': {
-                'south': 'start',
-                'north': 'chamber'
-            }
-        },
-        'chamber': {
-            'description': 'You are in a large chamber. There is a treasure chest in the middle of the room.',
-            'exits': {
-                'south': 'tunnel'
-            },
-            'items': {
-                'treasure': 'A shiny gold coin'
-            }
-        },
-        'wall': {
-            'description': 'You have hit a dead end. There is nothing here.',
-            'exits': {
-                'west': 'start'
-            }
-        },
-        'cliff': {
-            'description': 'You are standing at the edge of a cliff. The ground drops away beneath you.',
-            'exits': {
-                'east': 'start'
-            }
-        }
-    }
+# class Text_Adventure():
+#     world = {
+#         'start': {
+#             'description': 'You are standing at the entrance of a dark cave. There is a torch lying on the ground next to you.',
+#             'exits': {
+#                 'north': 'tunnel',
+#                 'east': 'wall',
+#                 'west': 'cliff'
+#             }
+#         },
+#         'tunnel': {
+#             'description': 'You are in a narrow tunnel. The walls are damp and the air is musty.',
+#             'exits': {
+#                 'south': 'start',
+#                 'north': 'chamber'
+#             }
+#         },
+#         'chamber': {
+#             'description': 'You are in a large chamber. There is a treasure chest in the middle of the room.',
+#             'exits': {
+#                 'south': 'tunnel'
+#             },
+#             'items': {
+#                 'treasure': 'A shiny gold coin'
+#             }
+#         },
+#         'wall': {
+#             'description': 'You have hit a dead end. There is nothing here.',
+#             'exits': {
+#                 'west': 'start'
+#             }
+#         },
+#         'cliff': {
+#             'description': 'You are standing at the edge of a cliff. The ground drops away beneath you.',
+#             'exits': {
+#                 'east': 'start'
+#             }
+#         }
+#     }
     
-    # Define the player's starting location
-    current_location = 'start'
+#     # Define the player's starting location
+#     current_location = 'start'
     
-    # Define the player's inventory
-    inventory = []
+#     # Define the player's inventory
+#     inventory = []
     
-    # Start the game loop
-    while True:
-        # Print the current location description
-        print(world[current_location]['description'])
+#     # Start the game loop
+#     while True:
+#         # Print the current location description
+#         print(world[current_location]['description'])
         
-        # Check if there are any items in the current location and prompt the player to pick them up
-        if 'items' in world[current_location]:
-            for item_name, item_description in world[current_location]['items'].items():
-                print(f"You see a {item_name} here.")
-                answer = input("Do you want to pick it up? (y/n) ")
-                if answer.lower() == 'y':
-                    inventory.append(item_name)
-                    print(f"You pick up the {item_name}.")
+#         # Check if there are any items in the current location and prompt the player to pick them up
+#         if 'items' in world[current_location]:
+#             for item_name, item_description in world[current_location]['items'].items():
+#                 print(f"You see a {item_name} here.")
+#                 answer = input("Do you want to pick it up? (y/n) ")
+#                 if answer.lower() == 'y':
+#                     inventory.append(item_name)
+#                     print(f"You pick up the {item_name}.")
         
-        # Print the available exits
-        print("Available exits:")
-        for exit_direction, exit_location in world[current_location]['exits'].items():
-            print(f"{exit_direction.capitalize()}: {exit_location}")
+#         # Print the available exits
+#         print("Available exits:")
+#         for exit_direction, exit_location in world[current_location]['exits'].items():
+#             print(f"{exit_direction.capitalize()}: {exit_location}")
         
-        # Prompt the player to choose an exit
-        answer = input("What do you want to do? ")
-        if answer in world[current_location]['exits']:
-            current_location = world[current_location]['exits'][answer]
-        elif answer == 'inventory':
-            print("You are carrying:")
-            for item in inventory:
-                print(f"- {item}")
-        else:
-            print("You can't do that.")
+#         # Prompt the player to choose an exit
+#         answer = input("What do you want to do? ")
+#         if answer in world[current_location]['exits']:
+#             current_location = world[current_location]['exits'][answer]
+#         elif answer == 'inventory':
+#             print("You are carrying:")
+#             for item in inventory:
+#                 print(f"- {item}")
+#         else:
+#             print("You can't do that.")
