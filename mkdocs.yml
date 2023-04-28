@@ -55,3 +55,4 @@ nav:
         - examples/ipyleaflet.ipynb
         - examples/add_image.ipynb
         - examples/add_raster.ipynb
+        - examples/basemap.ipynb
