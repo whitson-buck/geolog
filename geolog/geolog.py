@@ -229,18 +229,18 @@ class Map(ipyleaflet.Map):
         control = WidgetControl(widget=widget, position=position)
         self.add(control)
     
-    def add_toolbar(self, position="topright"):
-        """Adds toolbar capability to map"""
+    # def add_toolbar(self, position="topright"):
+    #     """Adds toolbar capability to map"""
 
-        # widget_width = "250px"
-        # padding = "0px 0px 0px 5px"
+    #     # widget_width = "250px"
+    #     # padding = "0px 0px 0px 5px"
 
-        toolbar_button = widgets.ToggleButton(
-            value=False,
-            tooltip="Toolbar",
-            icon="wrench",
-            layout=widgets.Layout(width="28px", height="28px", padding=padding),
-        )
+    #     toolbar_button = widgets.ToggleButton(
+    #         value=False,
+    #         tooltip="Toolbar",
+    #         icon="wrench",
+    #         layout=widgets.Layout(width="28px", height="28px", padding=padding),
+    #     )
 
         # close_button = widgets.ToggleButton(
         #     value=False,
@@ -308,8 +308,8 @@ class Map(ipyleaflet.Map):
                 if b.icon == 'map':
                     self.add_control(basemap_control)
                 
-        toolbar_button.observe(toolbar_click, "value")
+        # toolbar_button.observe(toolbar_click, "value")
 
-        toolbar_ctrl = ipyleaflet.WidgetControl(widget=toolbar, position=position)
+        # toolbar_ctrl = ipyleaflet.WidgetControl(widget=toolbar, position=position)
 
         self.add_control(toolbar_ctrl)
