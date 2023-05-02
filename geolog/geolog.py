@@ -229,8 +229,8 @@ class Map(ipyleaflet.Map):
         control = WidgetControl(widget=widget, position=position)
         self.add(control)
     
-    # def add_toolbar(self, position="topright"):
-    #     """Adds toolbar capability to map"""
+    def add_toolbar(self, position="topright"):
+        """Adds toolbar capability to map"""
 
     #     # widget_width = "250px"
     #     # padding = "0px 0px 0px 5px"
@@ -312,4 +312,4 @@ class Map(ipyleaflet.Map):
 
         # toolbar_ctrl = ipyleaflet.WidgetControl(widget=toolbar, position=position)
 
-        self.add_control(toolbar_ctrl)
+        # self.add_control(toolbar_ctrl)
