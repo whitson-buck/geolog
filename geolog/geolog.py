@@ -3,7 +3,7 @@
 import string
 import random
 import ipyleaflet
-from ipyleaflet import GeoData, LayersControl, GeoJSON
+from ipyleaflet import Map, basemaps, TileLayer, LayersControl, WMSLayer, ImageOverlay, basemap_to_tiles
 import folium
 import ipywidgets as widgets
 
@@ -149,6 +149,22 @@ class Map(ipyleaflet.Map):
                 self.add_tile_layer(url,name=basemap.name,attribution=attribution, **kwargs)
             except:
                 raise ValueError(f"Basemap '{basemap}' not found.")
+
+    # def add_basemap(m, basemap_name='OpenStreetMap', **kwargs):
+    #     """Add a basemap to a map object."""
+        
+    #     if isinstance(basemap_name, str):
+    #         try:
+    #             basemap = basemaps[basemap_name]
+    #         except KeyError:
+    #             raise ValueError(f'Invalid basemap name: {basemap_name}')
+    #     else:
+    #         basemap = basemap_name
+        
+    #     tiles = basemap_to_tiles(basemap, **kwargs)
+    #     m.add_layer(tiles)
+        
+    #     return tiles
             
     def add_shp(self, data, name='Shapefile', **kwargs):
         """Adds a Shapefile layer to the map.
@@ -232,84 +248,139 @@ class Map(ipyleaflet.Map):
     def add_toolbar(self, position="topright"):
         """Adds toolbar capability to map"""
 
-    #     # widget_width = "250px"
-    #     # padding = "0px 0px 0px 5px"
+        widget_width = "250px"
+        padding = "0px 0px 0px 5px"  # upper, right, bottom, left
 
-    #     toolbar_button = widgets.ToggleButton(
-    #         value=False,
-    #         tooltip="Toolbar",
-    #         icon="wrench",
-    #         layout=widgets.Layout(width="28px", height="28px", padding=padding),
-    #     )
-
-        # close_button = widgets.ToggleButton(
-        #     value=False,
-        #     tooltip="Close the tool",
-        #     icon="times",
-        #     button_style="primary",
-        #     layout=widgets.Layout(height="28px", width="28px", padding=padding),
-        # )
-
-        # toolbar = widgets.HBox([toolbar_button])
-
-        # def toolbar_click(change):
-        #     if change["new"]:
-        #         toolbar.children = [toolbar_button, close_button]
-        #     else:
-        #         toolbar.children = [toolbar_button]
-                
-        # toolbar_button.observe(toolbar_click, "value")
-
-        # def close_click(change):
-        #     if change["new"]:
-        #         toolbar_button.close()
-        #         close_button.close()
-        #         toolbar.close()
-        #         basemap.close()
-                
-        # close_button.observe(close_click, "value")
-
-        # rows = 2
-        # cols = 2
-        # grid = widgets.GridspecLayout(rows, cols, grid_gap="0px", layout=widgets.Layout(width="65px"))
-
-        # icons = ["folder-open", "map", "bluetooth", "area-chart"]
-
-        # for i in range(rows):
-        #     for j in range(cols):
-        #         grid[i, j] = widgets.Button(description="", button_style="primary", icon=icons[i*rows+j], 
-        #                                     layout=widgets.Layout(width="28px", padding="0px"))
-                
-        # toolbar = widgets.VBox([toolbar_button])
-
-        basemap = widgets.Dropdown(
-            options=['OpenStreetmap','roadmap','satellite'],
-            value=None,
-            description="Basemap",
-            style={'description_width': 'initial'},
-            layout=widgets.Layout(width='250px')
+        toolbar_button = widgets.ToggleButton(
+            value=False,
+            tooltip="Toolbar",
+            icon="wrench",
+            layout=widgets.Layout(width="28px", height="28px", padding=padding),
         )
 
-        basemap_control = ipyleaflet.WidgetControl(widget=basemap, position='topright')
+        close_button = widgets.ToggleButton(
+            value=False,
+            tooltip="Close the tool",
+            icon="times",
+            button_style="primary",
+            layout=widgets.Layout(height="28px", width="28px", padding=padding),
+        )
 
-        def change_basemap(change):
-            if change['new']:
-                self.add_basemap(basemap.value)
+        toolbar = widgets.HBox([toolbar_button])
 
-        basemap.observe(change_basemap, names='value')
-
-        # self.add_control(ipyleaflet.WidgetControl(widget=widgets.Output(),position="bottomright"))
-        self.add_control(basemap_control)
-
-        def toolbar_click(b):
-            with b:
-                b.clear_output()
-
-                if b.icon == 'map':
-                    self.add_control(basemap_control)
+        def toolbar_click(change):
+            if change["new"]:
+                toolbar.children = [toolbar_button, close_button]
+            else:
+                toolbar.children = [toolbar_button]
                 
-        # toolbar_button.observe(toolbar_click, "value")
+        toolbar_button.observe(toolbar_click, "value")
 
-        # toolbar_ctrl = ipyleaflet.WidgetControl(widget=toolbar, position=position)
+        def close_click(change):
+            if change["new"]:
+                toolbar_button.close()
+                close_button.close()
+                toolbar.close()
+                
+        close_button.observe(close_click, "value")
 
-        # self.add_control(toolbar_ctrl)
+        rows = 2
+        cols = 2
+        grid = widgets.GridspecLayout(rows, cols, grid_gap="0px", layout=widgets.Layout(width="65px"))
+
+        icons = ["folder-open", "map", "bluetooth", "area-chart"]
+
+        for i in range(rows):
+            for j in range(cols):
+                grid[i, j] = widgets.Button(description="", button_style="primary", icon=icons[i*rows+j], 
+                                            layout=widgets.Layout(width="28px", padding="0px"))
+                
+        toolbar = widgets.VBox([toolbar_button])
+
+        def toolbar_click(change):
+            if change["new"]:
+                toolbar.children = [widgets.HBox([close_button, toolbar_button]), grid]
+            else:
+                toolbar.children = [toolbar_button]
+                
+        toolbar_button.observe(toolbar_click, "value")
+
+        toolbar_ctrl = ipyleaflet.WidgetControl(widget=toolbar, position=position)
+
+        self.add_control(toolbar_ctrl)
+
+    # #     # widget_width = "250px"
+    # #     # padding = "0px 0px 0px 5px"
+
+    # #     toolbar_button = widgets.ToggleButton(
+    # #         value=False,
+    # #         tooltip="Toolbar",
+    # #         icon="wrench",
+    # #         layout=widgets.Layout(width="28px", height="28px", padding=padding),
+    # #     )
+
+    #     # close_button = widgets.ToggleButton(
+    #     #     value=False,
+    #     #     tooltip="Close the tool",
+    #     #     icon="times",
+    #     #     button_style="primary",
+    #     #     layout=widgets.Layout(height="28px", width="28px", padding=padding),
+    #     # )
+
+    #     # toolbar = widgets.HBox([toolbar_button])
+
+    #     # def toolbar_click(change):
+    #     #     if change["new"]:
+    #     #         toolbar.children = [toolbar_button, close_button]
+    #     #     else:
+    #     #         toolbar.children = [toolbar_button]
+                
+    #     # toolbar_button.observe(toolbar_click, "value")
+
+    #     # def close_click(change):
+    #     #     if change["new"]:
+    #     #         toolbar_button.close()
+    #     #         close_button.close()
+    #     #         toolbar.close()
+    #     #         basemap.close()
+                
+    #     # close_button.observe(close_click, "value")
+
+    #     # rows = 2
+    #     # cols = 2
+    #     # grid = widgets.GridspecLayout(rows, cols, grid_gap="0px", layout=widgets.Layout(width="65px"))
+
+    #     # icons = ["folder-open", "map", "bluetooth", "area-chart"]
+
+    #     # for i in range(rows):
+    #     #     for j in range(cols):
+    #     #         grid[i, j] = widgets.Button(description="", button_style="primary", icon=icons[i*rows+j], 
+    #     #                                     layout=widgets.Layout(width="28px", padding="0px"))
+                
+    #     # toolbar = widgets.VBox([toolbar_button])
+
+    #     basemap = widgets.Dropdown(
+    #         options=['OpenStreetmap','roadmap','satellite'],
+    #         value=None,
+    #         description="Basemap",
+    #         style={'description_width': 'initial'},
+    #         layout=widgets.Layout(width='250px')
+    #     )
+
+    #     basemap_control = ipyleaflet.WidgetControl(widget=basemap, position='topright')
+
+    #     def change_basemap(change):
+    #         if change['new']:
+    #             self.add_basemap(basemap.value)
+
+    #     basemap.observe(change_basemap, names='value')
+
+    #     # self.add_control(ipyleaflet.WidgetControl(widget=widgets.Output(),position="bottomright"))
+    #     self.add_control(basemap_control)
+
+    #     # def toolbar_click(b):
+    #     #     with b:
+    #     #         b.clear_output()
+
+    #     #         if b.icon == 'map':
+    #     #             self.add_control(basemap_control)
