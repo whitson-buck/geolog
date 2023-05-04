@@ -33,6 +33,8 @@ class Map(folium.Map):
         if not layer_ctrl:
             folium.LayerControl().add_to(self)
 
+    
+
     # def add_raster(
     #     self,
     #     source,
