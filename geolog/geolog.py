@@ -3,13 +3,15 @@
 import string
 import random
 import ipyleaflet
-from ipyleaflet import Map, basemaps, TileLayer, LayersControl, WMSLayer, ImageOverlay, basemap_to_tiles
+from ipyleaflet import Map, basemaps, TileLayer, LayersControl, WMSLayer, ImageOverlay, basemap_to_tiles, MarkerCluster, Marker
 import folium
 import ipywidgets as widgets
-from ipyleaflet import Map, Marker, MarkerCluster
+from ipywidgets import Button
+from ipyfilechooser import FileChooser
 import pandas as pd
-
-# import geopandas
+from shapely.geometry import Point
+import geopandas as gpd
+from IPython import display
 # from geopandas import GeoDataFrame, GeoSeries
 
 class Map(ipyleaflet.Map):
@@ -38,6 +40,15 @@ class Map(ipyleaflet.Map):
         if kwargs["add_search_control"]:
             self.add_search_control()
 
+        self.toolbar = widgets.VBox()
+        self.load_button = widgets.Button(description='Load CSV')
+        self.load_button.on_click(self._on_load_button_clicked)
+        self.toolbar.children = [self.load_button]
+        self.add_control(ipyleaflet.WidgetControl(widget=self.toolbar, position='topright'))
+
+        # Create a layer for the markers
+        self.marker_layer = ipyleaflet.MarkerCluster()
+        self.add_layer(self.marker_layer)
     def add_layers_control(self,**kwargs):
         """Layers control functionality
         
@@ -275,7 +286,7 @@ class Map(ipyleaflet.Map):
                 toolbar.children = [toolbar_button, close_button]
             else:
                 toolbar.children = [toolbar_button]
-                
+
         toolbar_button.observe(toolbar_click, "value")
 
         def close_click(change):
@@ -283,7 +294,7 @@ class Map(ipyleaflet.Map):
                 toolbar_button.close()
                 close_button.close()
                 toolbar.close()
-                
+
         close_button.observe(close_click, "value")
 
         rows = 2
@@ -291,12 +302,16 @@ class Map(ipyleaflet.Map):
         grid = widgets.GridspecLayout(rows, cols, grid_gap="0px", layout=widgets.Layout(width="65px"))
 
         icons = ["folder-open", "map", "bluetooth", "area-chart"]
+        button_descs = ["Load CSV", "Add Marker", "Toggle Heatmap", "Toggle Fullscreen"]
+        button_funcs = [self.load_csv, self.add_marker, self.toggle_heatmap, self.toggle_fullscreen]
 
         for i in range(rows):
             for j in range(cols):
-                grid[i, j] = widgets.Button(description="", button_style="primary", icon=icons[i*rows+j], 
+                button = widgets.Button(description=button_descs[i*rows+j], button_style="primary", icon=icons[i*rows+j], 
                                             layout=widgets.Layout(width="28px", padding="0px"))
-                
+                button.on_click(button_funcs[i*rows+j])
+                grid[i, j] = button
+
         toolbar = widgets.VBox([toolbar_button])
 
         def toolbar_click(change):
@@ -304,12 +319,48 @@ class Map(ipyleaflet.Map):
                 toolbar.children = [widgets.HBox([close_button, toolbar_button]), grid]
             else:
                 toolbar.children = [toolbar_button]
-                
+
         toolbar_button.observe(toolbar_click, "value")
 
         toolbar_ctrl = ipyleaflet.WidgetControl(widget=toolbar, position=position)
 
-        self.add_control(toolbar_ctrl)
+        self.map.add_control(toolbar_ctrl)
+        
+    def _on_load_button_clicked(self, b):
+        # Create a file picker widget
+        input_csv_file_picker = widgets.FileUpload(
+            accept='.csv',
+            description='Select CSV',
+            multiple=False
+        )
+
+        # Create a handler for when a file is uploaded
+        def handle_upload(change):
+            # Get the uploaded file
+            uploaded_file = list(change['new'].values())[0]
+            file_content = uploaded_file['content']
+
+            # Read the CSV data into a pandas dataframe
+            csv_data = pd.read_csv(io.StringIO(file_content.decode('utf-8')))
+
+            # Convert the dataframe into markers and add them to the map
+            markers = []
+            for i, row in csv_data.iterrows():
+                lat = row['latitude']
+                lon = row['longitude']
+                popup = row['name']
+                marker = ipyleaflet.Marker(location=(lat, lon), title=popup)
+                markers.append(marker)
+            self.marker_layer.markers = markers
+
+            # Remove the file picker widget
+            self.toolbar.children = [self.load_button]
+
+        # Attach the handler to the file picker
+        input_csv_file_picker.observe(handle_upload, names='value')
+
+        # Replace the toolbar with the file picker widget
+        self.toolbar.children = [input_csv_file_picker]
 
     def add_markers_from_csv(map_obj, csv_file):
     # Read the CSV data into a pandas DataFrame
@@ -448,3 +499,22 @@ class Map(ipyleaflet.Map):
 
     #     #         if b.icon == 'map':
     #     #             self.add_control(basemap_control)
+
+def csv_to_shp(in_csv, out_shp, x="longitude", y="latitude"):
+    """
+    Convert a CSV file with lat/lon information to a shapefile.
+        
+    Parameters:
+        in_csv (str): Path to the input CSV file.
+        out_shp (str): Path to the output shapefile.
+        x (str): Name of the column in the CSV file containing the longitude values (default="longitude").
+        y (str): Name of the column in the CSV file containing the latitude values (default="latitude").
+    """
+    # Read in the CSV file and convert the lat/lon columns to a geometry column
+    df = pd.read_csv(in_csv)
+    geometry = [Point(xy) for xy in zip(df[x], df[y])]
+    crs = "epsg:4326" # Assume WGS84 coordinate reference system
+    gdf = gpd.GeoDataFrame(df, crs=crs, geometry=geometry)
+
+    # Write the GeoDataFrame to a shapefile
+    gdf.to_file(out_shp, driver="ESRI Shapefile")
