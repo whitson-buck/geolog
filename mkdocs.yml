@@ -56,3 +56,5 @@ nav:
         - examples/add_image.ipynb
         - examples/add_raster.ipynb
         - examples/basemap.ipynb
+        - examples/add_csv_points.ipynb
+        - examples/csv_to_shp.ipynb
