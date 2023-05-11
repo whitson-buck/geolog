@@ -8,6 +8,7 @@ import folium
 import ipywidgets as widgets
 from ipywidgets import Button
 from ipyfilechooser import FileChooser
+import ipyfilechooser
 import pandas as pd
 from shapely.geometry import Point
 import geopandas as gpd
@@ -40,11 +41,12 @@ class Map(ipyleaflet.Map):
         if kwargs["add_search_control"]:
             self.add_search_control()
 
-        self.toolbar = widgets.VBox()
         self.load_button = widgets.Button(description='Load CSV')
-        self.load_button.on_click(self._on_load_button_clicked)
-        self.toolbar.children = [self.load_button]
-        self.add_control(ipyleaflet.WidgetControl(widget=self.toolbar, position='topright'))
+        self.load_button.on_click(self.load_csv)
+        
+        toolbar = widgets.HBox([self.load_button])
+        toolbar_ctrl = ipyleaflet.WidgetControl(widget=toolbar, position='topright')
+        self.add_control(toolbar_ctrl)
 
         # Create a layer for the markers
         self.marker_layer = ipyleaflet.MarkerCluster()
@@ -326,52 +328,18 @@ class Map(ipyleaflet.Map):
 
         self.map.add_control(toolbar_ctrl)
         
-    def _on_load_button_clicked(self, b):
-        # Create a file picker widget
-        input_csv_file_picker = widgets.FileUpload(
-            accept='.csv',
-            description='Select CSV',
-            multiple=False
-        )
-
-        # Create a handler for when a file is uploaded
-        def handle_upload(change):
-            # Get the uploaded file
-            uploaded_file = list(change['new'].values())[0]
-            file_content = uploaded_file['content']
-
-            # Read the CSV data into a pandas dataframe
-            csv_data = pd.read_csv(io.StringIO(file_content.decode('utf-8')))
-
-            # Convert the dataframe into markers and add them to the map
-            markers = []
-            for i, row in csv_data.iterrows():
-                lat = row['latitude']
-                lon = row['longitude']
-                popup = row['name']
-                marker = ipyleaflet.Marker(location=(lat, lon), title=popup)
-                markers.append(marker)
-            self.marker_layer.markers = markers
-
-            # Remove the file picker widget
-            self.toolbar.children = [self.load_button]
-
-        # Attach the handler to the file picker
-        input_csv_file_picker.observe(handle_upload, names='value')
-
-        # Replace the toolbar with the file picker widget
-        self.toolbar.children = [input_csv_file_picker]
-
-    def add_markers_from_csv(map_obj, csv_file):
-    # Read the CSV data into a pandas DataFrame
-        data = pd.read_csv(csv_file, usecols=["name", "sov_a3", "latitude", "longitude", "pop_max"])
-    
-    # Iterate over the rows of the DataFrame and create markers for each location
-        for _, row in data.iterrows():
-            location = (row["latitude"], row["longitude"])
-            title = f"{row['name']} ({row['sov_a3']}) - Population: {row['pop_max']}"
-            marker = Marker(location=location, title=title)
-            map_obj.add_layer(marker)
+    def load_csv(self, button):
+        csv_chooser = ipyfilechooser.FileChooser()
+        display(csv_chooser)
+        csv_chooser.use_dir_icons = True
+        
+        if csv_chooser.selected:
+            filepath = csv_chooser.selected
+            df = pd.read_csv(filepath)
+            
+            for index, row in df.iterrows():
+                marker = ipyleaflet.Marker(location=[row['latitude'], row['longitude']])
+                self.add_layer(marker)
 
     # def to_streamlit(
     #     self,
