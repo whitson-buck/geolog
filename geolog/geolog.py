@@ -6,9 +6,11 @@ import ipyleaflet
 from ipyleaflet import Map, basemaps, TileLayer, LayersControl, WMSLayer, ImageOverlay, basemap_to_tiles
 import folium
 import ipywidgets as widgets
+from ipyleaflet import Map, Marker, MarkerCluster
+import pandas as pd
 
-import geopandas
-from geopandas import GeoDataFrame, GeoSeries
+# import geopandas
+# from geopandas import GeoDataFrame, GeoSeries
 
 class Map(ipyleaflet.Map):
     def __init__(self, center=[35,-90], zoom=5, **kwargs) -> None:
@@ -309,56 +311,67 @@ class Map(ipyleaflet.Map):
 
         self.add_control(toolbar_ctrl)
 
-    def to_streamlit(
-        self,
-        width=None,
-        height=600,
-        scrolling=False,
-        add_layer_control=True,
-        bidirectional=False,
-        **kwargs,
-    ):
-        """Renders `folium.Figure` or `folium.Map` in a Streamlit app. This method is a static Streamlit Component, meaning, no information is passed back from Leaflet on browser interaction.
+    def add_markers_from_csv(map_obj, csv_file):
+    # Read the CSV data into a pandas DataFrame
+        data = pd.read_csv(csv_file, usecols=["name", "sov_a3", "latitude", "longitude", "pop_max"])
+    
+    # Iterate over the rows of the DataFrame and create markers for each location
+        for _, row in data.iterrows():
+            location = (row["latitude"], row["longitude"])
+            title = f"{row['name']} ({row['sov_a3']}) - Population: {row['pop_max']}"
+            marker = Marker(location=location, title=title)
+            map_obj.add_layer(marker)
 
-        Args:
-            width (int, optional): Width of the map. Defaults to None.
-            height (int, optional): Height of the map. Defaults to 600.
-            scrolling (bool, optional): Whether to allow the map to scroll. Defaults to False.
-            add_layer_control (bool, optional): Whether to add the layer control. Defaults to True.
-            bidirectional (bool, optional): Whether to add bidirectional functionality to the map. The streamlit-folium package is required to use the bidirectional functionality. Defaults to False.
+    # def to_streamlit(
+    #     self,
+    #     width=None,
+    #     height=600,
+    #     scrolling=False,
+    #     add_layer_control=True,
+    #     bidirectional=False,
+    #     **kwargs,
+    # ):
+    #     """Renders `folium.Figure` or `folium.Map` in a Streamlit app. This method is a static Streamlit Component, meaning, no information is passed back from Leaflet on browser interaction.
 
-        Raises:
-            ImportError: If streamlit is not installed.
+    #     Args:
+    #         width (int, optional): Width of the map. Defaults to None.
+    #         height (int, optional): Height of the map. Defaults to 600.
+    #         scrolling (bool, optional): Whether to allow the map to scroll. Defaults to False.
+    #         add_layer_control (bool, optional): Whether to add the layer control. Defaults to True.
+    #         bidirectional (bool, optional): Whether to add bidirectional functionality to the map. The streamlit-folium package is required to use the bidirectional functionality. Defaults to False.
 
-        Returns:
-            streamlit.components: components.html object.
-        """
+    #     Raises:
+    #         ImportError: If streamlit is not installed.
 
-        try:
-            import streamlit.components.v1 as components
+    #     Returns:
+    #         streamlit.components: components.html object.
+    #     """
 
-            if add_layer_control:
-                self.add_layer_control()
+    #     try:
+    #         import streamlit.components.v1 as components
 
-            if bidirectional:
-                from streamlit_folium import st_folium
+    #         if add_layer_control:
+    #             self.add_layer_control()
 
-                output = st_folium(self, width=width, height=height)
-                return output
-            else:
-                # if responsive:
-                #     make_map_responsive = """
-                #     <style>
-                #     [title~="st.iframe"] { width: 100%}
-                #     </style>
-                #     """
-                #     st.markdown(make_map_responsive, unsafe_allow_html=True)
-                return components.html(
-                    self.to_html(), width=width, height=height, scrolling=scrolling
-                )
+    #         if bidirectional:
+    #             from streamlit_folium import st_folium
 
-        except Exception as e:
-            raise Exception(e)
+    #             output = st_folium(self, width=width, height=height)
+    #             return output
+    #         else:
+    #             # if responsive:
+    #             #     make_map_responsive = """
+    #             #     <style>
+    #             #     [title~="st.iframe"] { width: 100%}
+    #             #     </style>
+    #             #     """
+    #             #     st.markdown(make_map_responsive, unsafe_allow_html=True)
+    #             return components.html(
+    #                 self.to_html(), width=width, height=height, scrolling=scrolling
+    #             )
+
+    #     except Exception as e:
+    #         raise Exception(e)
 
     # #     # widget_width = "250px"
     # #     # padding = "0px 0px 0px 5px"
