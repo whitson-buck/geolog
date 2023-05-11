@@ -7,7 +7,6 @@ from ipyleaflet import Map, basemaps, TileLayer, LayersControl, WMSLayer, ImageO
 import folium
 import ipywidgets as widgets
 from ipywidgets import Button
-from ipyfilechooser import FileChooser
 import pandas as pd
 from shapely.geometry import Point
 import geopandas as gpd
