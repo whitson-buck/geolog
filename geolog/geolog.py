@@ -581,6 +581,12 @@ def csv_to_shp(in_csv, out_shp, x="longitude", y="latitude"):
 import numpy as np
 
 def calculate_circularity_index(shp_file):
+    """
+    Calculates the circularity of a shapfile as defined by sqrt(4*pi*area)/perimeter
+
+    Args:
+        - shp_file is the location of the shp file
+    """
     # Read in the shapefile using pyshp
     sf = gpd.read_file(shp_file)
 
@@ -596,6 +602,12 @@ def calculate_circularity_index(shp_file):
     return sf
 
 def elongation_ratio(shp_file):
+    """
+    Calculates the elongation ratio of a shapfile as defined by 1 - shortaxis/longaxis
+
+    Args:
+        - shp_file is the location of the shp file
+    """
     # Read in the shapefile using pyshp
     sf = gpd.read_file(shp_file)
 
