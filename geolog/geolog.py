@@ -594,3 +594,18 @@ def calculate_circularity_index(shp_file):
 
     
     return sf
+
+def elongation_ratio(shp_file):
+    # Read in the shapefile using pyshp
+    sf = gpd.read_file(shp_file)
+
+    area = shape(sf.loc[0,'geometry']).area
+
+    for i in range(len(sf)):
+        sf.loc[i,'CI'] = np.sqrt(4 * np.pi * shape(sf.loc[i,'geometry']).area) / shape(sf.loc[i,'geometry']).length
+    
+    # Get the shapefile's shape records
+    # shapes = sf.shapes()
+
+    
+    return sf
