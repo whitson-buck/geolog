@@ -6,4 +6,4 @@ Ipython
 ipywidgets
 pandas
 shapely
-math
+numpy

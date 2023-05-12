@@ -578,8 +578,7 @@ def csv_to_shp(in_csv, out_shp, x="longitude", y="latitude"):
     # Write the GeoDataFrame to a shapefile
     gdf.to_file(out_shp, driver="ESRI Shapefile")
 
-import math
-
+import numpy as np
 def calculate_circularity_index(shp_file):
     # Read in the shapefile using pyshp
     sf = gpd.read_file(shp_file)
@@ -587,7 +586,7 @@ def calculate_circularity_index(shp_file):
     area = shape(sf.loc[0,'geometry']).area
 
     for i in range(len(sf)):
-        sf.loc[i,'CI'] = math.sqrt(4 * math.pi * shape(sf.loc[i,'geometry']).area) / shape(sf.loc[i,'geometry']).length
+        sf.loc[i,'CI'] = np.sqrt(4 * np.pi * shape(sf.loc[i,'geometry']).area) / shape(sf.loc[i,'geometry']).length
     
     # Get the shapefile's shape records
     # shapes = sf.shapes()
