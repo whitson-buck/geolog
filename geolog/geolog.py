@@ -45,9 +45,21 @@ class Map(ipyleaflet.Map):
         self.toolbar.children = [self.load_button]
         self.add_control(ipyleaflet.WidgetControl(widget=self.toolbar, position='topright'))
 
-        # Create a layer for the markers
-        self.marker_layer = ipyleaflet.MarkerCluster()
-        self.add_layer(self.marker_layer)
+        # self.marker_cluster = ipyleaflet.MarkerCluster()
+        # self.add_layer(self.marker_cluster)
+        # self.marker_layer = ipyleaflet.LayerGroup()
+        # self.add_layer(self.marker_layer)
+        # self.markers = []
+        # self.marker_popup = widgets.HTML()
+        
+        # # Add a mouse click event listener to the map
+        # # self.on_interaction(self.handle_interaction)
+        
+        # # Add a Save Markers button
+        # self.save_markers_button = widgets.Button(description='Save Markers')
+        # self.save_markers_button.on_click(self.save_markers_to_csv)
+        # self.add_control(widgets.VBox([self.save_markers_button]))
+
     def add_layers_control(self,**kwargs):
         """Layers control functionality
         
@@ -55,7 +67,7 @@ class Map(ipyleaflet.Map):
         layers_control = ipyleaflet.LayersControl(**kwargs)
         self.add_control(layers_control)
     
-    def add_fullscreen_control(self,position="topleft"):
+    def add_fullscreen_control(self,position="bottomright"):
         """Adds fullscreen control capability to the map.
         
         Args: 
@@ -111,15 +123,35 @@ class Map(ipyleaflet.Map):
                 "fillOpacity": 1.0
             }
         }
-        draw_control.rectangle = {
-            "shapeOptions": {
-                "fillColor": "#fca45d",
-                "color": "#fca45d",
-                "fillOpacity": 1.0
-            }
-        }
 
         self.add_control(draw_control)
+
+    # def handle_interaction(self, event, **kwargs):
+    #     if event['type'] == 'click':
+    #         lat, lon = event['coordinates']
+    #         marker = Marker(location=(lat, lon))
+    #         self.marker_cluster.add_layer(marker)
+    #         self.markers.append(marker)
+                
+    #         # Update the marker popup to display latitude and longitude
+    #         self.marker_popup.value = f'Latitude: {lat}, Longitude: {lon}'
+    #         marker.popup = self.marker_popup
+    #         self.marker_layer.add_layer(marker)
+
+    # def save_markers_to_csv(self, button):
+    #     data = {'latitude': [], 'longitude': []}
+    #     for marker in self.markers:
+    #             location = marker.location
+    #             data['latitude'].append(location[0])
+    #             data['longitude'].append(location[1])
+    #     df = pd.DataFrame(data)
+    #     df.to_csv('markers.csv', index=False)
+
+    # def clear_markers(self):
+    #     for marker in self.markers:
+    #         self.marker_cluster.remove_layer(marker)
+    #         self.marker_layer.remove_layer(marker)
+    #     self.markers = []
 
     def add_tile_layer(self, url, name, attribution="",**kwargs):
         """
@@ -371,6 +403,7 @@ class Map(ipyleaflet.Map):
             title = f"{row['name']} ({row['sov_a3']}) - Population: {row['pop_max']}"
             marker = Marker(location=location, title=title)
             map_obj.add_layer(marker)
+
 
     # def to_streamlit(
     #     self,
