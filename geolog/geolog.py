@@ -580,7 +580,7 @@ def csv_to_shp(in_csv, out_shp, x="longitude", y="latitude"):
 
 import numpy as np
 
-def display_polygon(shp_file, heady=0,color="Red"):
+def display_polygon(shp_file, shp_file_two="NA", heady=0,color="Red",edgecolor="black"):
     """
     Displays your shp file in ipyleaflet map
 
@@ -588,13 +588,37 @@ def display_polygon(shp_file, heady=0,color="Red"):
         - shp_file is the location of the shp file
     """
     data = gpd.read_file(shp_file)
-
-    if heady == 0:
+    if shp_file_two != "NA":
+        data2 = gpd.read_file(shp_file_two)
+    else:
         pass
+
+    if shp_file_two != "NA":
+        base = data2.plot(color='white',edgecolor=edgecolor)
+        data.plot(ax=base,color=color)
     else:
         data = data.head(heady)
         data.plot(facecolor=color)
         return data
+    
+def display_polygon_interactive(shp_file,color="Red"):
+    import geopandas
+    import folium
+    import matplotlib
+    import mapclassify
+
+    sf = gpd.read_file(shp_file)
+
+    for i in range(len(sf)):
+        sf.loc[i,'CI'] = round(np.sqrt(4 * np.pi * shape(sf.loc[i,'geometry']).area) / shape(sf.loc[i,'geometry']).length,4)
+
+    # area = shape(sf.loc[0,'geometry']).area
+    # convex = shape(sf.loc[0,'geometry']).convex_hull
+
+    # for i in range(len(sf)):
+    #     sf.loc[i,'SC'] = 1 - area/convex
+
+    return sf.explore(color=color,style_kwds=dict(color="black"))
 
 def calculate_circularity_index(shp_file):
     """
@@ -606,8 +630,6 @@ def calculate_circularity_index(shp_file):
     # Read in the shapefile using pyshp
     sf = gpd.read_file(shp_file)
 
-    area = shape(sf.loc[0,'geometry']).area
-
     for i in range(len(sf)):
         sf.loc[i,'CI'] = np.sqrt(4 * np.pi * shape(sf.loc[i,'geometry']).area) / shape(sf.loc[i,'geometry']).length
     
@@ -617,9 +639,9 @@ def calculate_circularity_index(shp_file):
     
     return sf
 
-def elongation_ratio(shp_file):
+def calculate_shape_complexity(shp_file):
     """
-    Calculates the elongation ratio of a shapfile as defined by 1 - shortaxis/longaxis
+    Calculates the complexity ratio of a shapfile as defined by 1 - Area/Convex Hull
 
     Args:
         - shp_file is the location of the shp file
@@ -628,12 +650,12 @@ def elongation_ratio(shp_file):
     sf = gpd.read_file(shp_file)
 
     area = shape(sf.loc[0,'geometry']).area
+    convex = shape(sf.loc[0,'geometry']).convex_hull
 
     for i in range(len(sf)):
-        sf.loc[i,'CI'] = np.sqrt(4 * np.pi * shape(sf.loc[i,'geometry']).area) / shape(sf.loc[i,'geometry']).length
+        sf.loc[i,'CI'] = 1 - area/convex
     
     # Get the shapefile's shape records
     # shapes = sf.shapes()
-
     
     return sf
