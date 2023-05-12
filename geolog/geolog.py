@@ -1,10 +1,10 @@
 """Main module."""
 
-import string
-import random
+# import string
+# import random
 import ipyleaflet
 from ipyleaflet import Map, basemaps, TileLayer, LayersControl, WMSLayer, ImageOverlay, basemap_to_tiles, MarkerCluster, Marker
-import folium
+# import folium
 import ipywidgets as widgets
 from ipywidgets import Button
 from ipywidgets import ToggleButtons
