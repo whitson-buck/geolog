@@ -6,3 +6,5 @@ Ipython
 ipywidgets
 pandas
 shapely
+shapefile
+math

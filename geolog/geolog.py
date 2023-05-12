@@ -7,8 +7,9 @@ from ipyleaflet import Map, basemaps, TileLayer, LayersControl, WMSLayer, ImageO
 import folium
 import ipywidgets as widgets
 from ipywidgets import Button
+from ipywidgets import ToggleButtons
 import pandas as pd
-from shapely.geometry import Point
+from shapely.geometry import Point, shape
 import geopandas as gpd
 from IPython import display
 # from geopandas import GeoDataFrame, GeoSeries
@@ -28,10 +29,10 @@ class Map(ipyleaflet.Map):
             self.add_layers_control()
 
         if "fullscreen_control" not in kwargs:
-            kwargs["fullscreen_control"]=True  
+            kwargs["fullscreen_control"] = True
 
         if kwargs["fullscreen_control"]:
-            self.add_fullscreen_control()  
+            self.add_fullscreen_control()
         
         if "add_search_control" not in kwargs:
             kwargs["add_search_control"]=True
@@ -39,11 +40,11 @@ class Map(ipyleaflet.Map):
         if kwargs["add_search_control"]:
             self.add_search_control()
 
-        self.toolbar = widgets.VBox()
-        self.load_button = widgets.Button(description='Load CSV')
-        self.load_button.on_click(self._on_load_button_clicked)
-        self.toolbar.children = [self.load_button]
-        self.add_control(ipyleaflet.WidgetControl(widget=self.toolbar, position='topright'))
+        # self.toolbar = widgets.VBox()
+        # self.load_button = widgets.Button(description='Load CSV')
+        # self.load_button.on_click(self._on_load_button_clicked)
+        # self.toolbar.children = [self.load_button]
+        # self.add_control(ipyleaflet.WidgetControl(widget=self.toolbar, position='topright'))
 
         # self.marker_cluster = ipyleaflet.MarkerCluster()
         # self.add_layer(self.marker_cluster)
@@ -59,6 +60,32 @@ class Map(ipyleaflet.Map):
         # self.save_markers_button = widgets.Button(description='Save Markers')
         # self.save_markers_button.on_click(self.save_markers_to_csv)
         # self.add_control(widgets.VBox([self.save_markers_button]))
+
+    def add_contour_map(self):
+        options = ToggleButtons(
+            options=['Elevation', 'Contour'],
+            value='Elevation',
+            description='Map Type:',
+            disabled=False,
+            button_style='', 
+            layout={'width': 'max-content'}
+        )
+        options.observe(self.change_contour_map)
+        display(options)
+
+    def change_contour_map(self, change):
+        if change.new == 'Elevation':
+            url = "https://cyberjapandata.gsi.go.jp/xyz/dem_png/{z}/{x}/{y}.png"
+        elif change.new == 'Contour':
+            url = "https://cyberjapandata.gsi.go.jp/xyz/gm_tif/{z}/{x}/{y}.tif"
+        layer = TileLayer(url=url)
+        self.map.substitute_layer(self.layers['basemap'], layer)
+        self.layers['basemap'] = layer
+
+    def show(self):
+        control = LayersControl(position='topright')
+        self.map.add_control(control)
+        display(self.map)
 
     def add_layers_control(self,**kwargs):
         """Layers control functionality
@@ -357,41 +384,41 @@ class Map(ipyleaflet.Map):
 
         self.map.add_control(toolbar_ctrl)
         
-    def _on_load_button_clicked(self, b):
-        # Create a file picker widget
-        input_csv_file_picker = widgets.FileUpload(
-            accept='.csv',
-            description='Select CSV',
-            multiple=False
-        )
+    # def _on_load_button_clicked(self, b):
+    #     # Create a file picker widget
+    #     input_csv_file_picker = widgets.FileUpload(
+    #         accept='.csv',
+    #         description='Select CSV',
+    #         multiple=False
+    #     )
 
-        # Create a handler for when a file is uploaded
-        def handle_upload(change):
-            # Get the uploaded file
-            uploaded_file = list(change['new'].values())[0]
-            file_content = uploaded_file['content']
+    #     # Create a handler for when a file is uploaded
+    #     def handle_upload(change):
+    #         # Get the uploaded file
+    #         uploaded_file = list(change['new'].values())[0]
+    #         file_content = uploaded_file['content']
 
-            # Read the CSV data into a pandas dataframe
-            csv_data = pd.read_csv(io.StringIO(file_content.decode('utf-8')))
+    #         # Read the CSV data into a pandas dataframe
+    #         csv_data = pd.read_csv(io.StringIO(file_content.decode('utf-8')))
 
-            # Convert the dataframe into markers and add them to the map
-            markers = []
-            for i, row in csv_data.iterrows():
-                lat = row['latitude']
-                lon = row['longitude']
-                popup = row['name']
-                marker = ipyleaflet.Marker(location=(lat, lon), title=popup)
-                markers.append(marker)
-            self.marker_layer.markers = markers
+    #         # Convert the dataframe into markers and add them to the map
+    #         markers = []
+    #         for i, row in csv_data.iterrows():
+    #             lat = row['latitude']
+    #             lon = row['longitude']
+    #             popup = row['name']
+    #             marker = ipyleaflet.Marker(location=(lat, lon), title=popup)
+    #             markers.append(marker)
+    #         self.marker_layer.markers = markers
 
-            # Remove the file picker widget
-            self.toolbar.children = [self.load_button]
+    #         # Remove the file picker widget
+    #         self.toolbar.children = [self.load_button]
 
-        # Attach the handler to the file picker
-        input_csv_file_picker.observe(handle_upload, names='value')
+    #     # Attach the handler to the file picker
+    #     input_csv_file_picker.observe(handle_upload, names='value')
 
-        # Replace the toolbar with the file picker widget
-        self.toolbar.children = [input_csv_file_picker]
+    #     # Replace the toolbar with the file picker widget
+    #     self.toolbar.children = [input_csv_file_picker]
 
     def add_markers_from_csv(map_obj, csv_file):
     # Read the CSV data into a pandas DataFrame
@@ -550,3 +577,20 @@ def csv_to_shp(in_csv, out_shp, x="longitude", y="latitude"):
 
     # Write the GeoDataFrame to a shapefile
     gdf.to_file(out_shp, driver="ESRI Shapefile")
+
+import math
+
+def calculate_circularity_index(shp_file):
+    # Read in the shapefile using pyshp
+    sf = gpd.read_file(shp_file)
+
+    area = shape(sf.loc[0,'geometry']).area
+
+    for i in range(len(sf)):
+        sf.loc[i,'CI'] = math.sqrt(4 * math.pi * shape(sf.loc[i,'geometry']).area) / shape(sf.loc[i,'geometry']).length
+    
+    # Get the shapefile's shape records
+    # shapes = sf.shapes()
+
+    
+    return sf
