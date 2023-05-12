@@ -580,6 +580,20 @@ def csv_to_shp(in_csv, out_shp, x="longitude", y="latitude"):
 
 import numpy as np
 
+def display_polygon(shp_file):
+    """
+    Displays your shp file in ipyleaflet map
+
+    Args:
+        - shp_file is the location of the shp file
+    """
+    data = gpd.read_file(shp_file)
+    
+    # Iterate over the rows of the DataFrame and create markers for each location
+    gpd.plot()
+
+    return data
+
 def calculate_circularity_index(shp_file):
     """
     Calculates the circularity of a shapfile as defined by sqrt(4*pi*area)/perimeter
