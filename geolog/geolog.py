@@ -579,6 +579,7 @@ def csv_to_shp(in_csv, out_shp, x="longitude", y="latitude"):
     gdf.to_file(out_shp, driver="ESRI Shapefile")
 
 import numpy as np
+
 def calculate_circularity_index(shp_file):
     # Read in the shapefile using pyshp
     sf = gpd.read_file(shp_file)
