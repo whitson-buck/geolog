@@ -1,0 +1,2383 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://whitson-buck.github.io/geolog/geolog/">
+      
+      
+        <link rel="prev" href="../changelog/">
+      
+      
+        <link rel="next" href="../examples/example/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
+    
+    
+      
+        <title>geolog module - geolog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#geolog-module" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="geolog" class="md-header__button md-logo" aria-label="geolog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            geolog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              geolog module
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/whitson-buck/geolog" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="geolog" class="md-nav__button md-logo" aria-label="geolog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    geolog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/whitson-buck/geolog" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/whitson-buck/geolog/issues" class="md-nav__link">
+        Report Issues
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          API Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          geolog module
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        geolog module
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog" class="md-nav__link">
+    geolog.geolog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.Map" class="md-nav__link">
+    Map
+  </a>
+  
+    <nav class="md-nav" aria-label="Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_basemap" class="md-nav__link">
+    add_basemap()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_draw_control" class="md-nav__link">
+    add_draw_control()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_fullscreen_control" class="md-nav__link">
+    add_fullscreen_control()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_geojson" class="md-nav__link">
+    add_geojson()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_image" class="md-nav__link">
+    add_image()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_layers_control" class="md-nav__link">
+    add_layers_control()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_raster" class="md-nav__link">
+    add_raster()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_search_control" class="md-nav__link">
+    add_search_control()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_shp" class="md-nav__link">
+    add_shp()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_tile_layer" class="md-nav__link">
+    add_tile_layer()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_toolbar" class="md-nav__link">
+    add_toolbar()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_vector" class="md-nav__link">
+    add_vector()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.calculate_circularity_index" class="md-nav__link">
+    calculate_circularity_index()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.calculate_shape_complexity" class="md-nav__link">
+    calculate_shape_complexity()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.csv_to_shp" class="md-nav__link">
+    csv_to_shp()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.display_polygon" class="md-nav__link">
+    display_polygon()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/example/" class="md-nav__link">
+        Example
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/ipyleaflet/" class="md-nav__link">
+        Ipyleaflet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/add_image/" class="md-nav__link">
+        Add image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/add_raster/" class="md-nav__link">
+        Add raster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/basemap/" class="md-nav__link">
+        Basemap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/add_csv_points/" class="md-nav__link">
+        Add csv points
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/csv_to_shp/" class="md-nav__link">
+        Csv to shp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog" class="md-nav__link">
+    geolog.geolog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.Map" class="md-nav__link">
+    Map
+  </a>
+  
+    <nav class="md-nav" aria-label="Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_basemap" class="md-nav__link">
+    add_basemap()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_draw_control" class="md-nav__link">
+    add_draw_control()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_fullscreen_control" class="md-nav__link">
+    add_fullscreen_control()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_geojson" class="md-nav__link">
+    add_geojson()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_image" class="md-nav__link">
+    add_image()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_layers_control" class="md-nav__link">
+    add_layers_control()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_raster" class="md-nav__link">
+    add_raster()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_search_control" class="md-nav__link">
+    add_search_control()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_shp" class="md-nav__link">
+    add_shp()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_tile_layer" class="md-nav__link">
+    add_tile_layer()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_toolbar" class="md-nav__link">
+    add_toolbar()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geolog.geolog.Map.add_vector" class="md-nav__link">
+    add_vector()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.calculate_circularity_index" class="md-nav__link">
+    calculate_circularity_index()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.calculate_shape_complexity" class="md-nav__link">
+    calculate_shape_complexity()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.csv_to_shp" class="md-nav__link">
+    csv_to_shp()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geolog.geolog.display_polygon" class="md-nav__link">
+    display_polygon()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+
+
+                  
+
+  
+  
+
+
+<h1 id="geolog-module">geolog module<a class="headerlink" href="#geolog-module" title="Permanent link">&para;</a></h1>
+
+
+  <div class="doc doc-object doc-module">
+
+<a id="geolog.geolog"></a>
+    <div class="doc doc-contents first">
+
+      <p>Main module.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="geolog.geolog.Map" class="doc doc-heading">
+        <code>
+Map            (<span title="ipyleaflet.leaflet.Map">Map</span>)
+        </code>
+
+
+
+<a href="#geolog.geolog.Map" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Map</span><span class="p">(</span><span class="n">ipyleaflet</span><span class="o">.</span><span class="n">Map</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">35</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="s2">&quot;scroll_wheel_zoom&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;scroll_wheel_zoom&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="n">zoom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;layers_control&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;layers_control&quot;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;layers_control&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_layers_control</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="s2">&quot;fullscreen_control&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fullscreen_control&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fullscreen_control&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_fullscreen_control</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="s2">&quot;add_search_control&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;add_search_control&quot;</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;add_search_control&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_search_control</span><span class="p">()</span>
+
+        <span class="c1"># self.toolbar = widgets.VBox()</span>
+        <span class="c1"># self.load_button = widgets.Button(description=&#39;Load CSV&#39;)</span>
+        <span class="c1"># self.load_button.on_click(self._on_load_button_clicked)</span>
+        <span class="c1"># self.toolbar.children = [self.load_button]</span>
+        <span class="c1"># self.add_control(ipyleaflet.WidgetControl(widget=self.toolbar, position=&#39;topright&#39;))</span>
+
+        <span class="c1"># self.marker_cluster = ipyleaflet.MarkerCluster()</span>
+        <span class="c1"># self.add_layer(self.marker_cluster)</span>
+        <span class="c1"># self.marker_layer = ipyleaflet.LayerGroup()</span>
+        <span class="c1"># self.add_layer(self.marker_layer)</span>
+        <span class="c1"># self.markers = []</span>
+        <span class="c1"># self.marker_popup = widgets.HTML()</span>
+
+        <span class="c1"># # Add a mouse click event listener to the map</span>
+        <span class="c1"># # self.on_interaction(self.handle_interaction)</span>
+
+        <span class="c1"># # Add a Save Markers button</span>
+        <span class="c1"># self.save_markers_button = widgets.Button(description=&#39;Save Markers&#39;)</span>
+        <span class="c1"># self.save_markers_button.on_click(self.save_markers_to_csv)</span>
+        <span class="c1"># self.add_control(widgets.VBox([self.save_markers_button]))</span>
+
+    <span class="k">def</span> <span class="nf">add_contour_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="n">ToggleButtons</span><span class="p">(</span>
+            <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Elevation&#39;</span><span class="p">,</span> <span class="s1">&#39;Contour&#39;</span><span class="p">],</span>
+            <span class="n">value</span><span class="o">=</span><span class="s1">&#39;Elevation&#39;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Map Type:&#39;</span><span class="p">,</span>
+            <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+            <span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="s1">&#39;max-content&#39;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">options</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">change_contour_map</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">change_contour_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">change</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">change</span><span class="o">.</span><span class="n">new</span> <span class="o">==</span> <span class="s1">&#39;Elevation&#39;</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://cyberjapandata.gsi.go.jp/xyz/dem_png/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">.png&quot;</span>
+        <span class="k">elif</span> <span class="n">change</span><span class="o">.</span><span class="n">new</span> <span class="o">==</span> <span class="s1">&#39;Contour&#39;</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://cyberjapandata.gsi.go.jp/xyz/gm_tif/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">.tif&quot;</span>
+        <span class="n">layer</span> <span class="o">=</span> <span class="n">TileLayer</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">substitute_layer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;basemap&#39;</span><span class="p">],</span> <span class="n">layer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s1">&#39;basemap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">layer</span>
+
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">control</span> <span class="o">=</span> <span class="n">LayersControl</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_layers_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Layers control functionality</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layers_control</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">LayersControl</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">layers_control</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_fullscreen_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">position</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds fullscreen control capability to the map.</span>
+
+<span class="sd">        Args: </span>
+<span class="sd">            position - where you want controls located.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fullscreen_control</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">FullScreenControl</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">fullscreen_control</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_search_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">position</span><span class="o">=</span><span class="s2">&quot;bottomleft&quot;</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds search control to the map.</span>
+
+<span class="sd">        Args: </span>
+<span class="sd">            position - Where you would like the search control box to be</span>
+<span class="sd">            located. Eg: topleft, bottomright.</span>
+<span class="sd">            Kwargs - Keyword arguments to pass to search control</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;url&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://nominatim.openstreetmap.org/search?format=json&amp;q=</span><span class="si">{s}</span><span class="s1">&#39;</span>
+        <span class="n">search_control</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">SearchControl</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">search_control</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_draw_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds drawing control to the map, like lines and polygons.</span>
+
+<span class="sd">        Args: </span>
+<span class="sd">            Kwargs - Keyword arguments to pass to search control</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">draw_control</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">DrawControl</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">draw_control</span><span class="o">.</span><span class="n">polyline</span> <span class="o">=</span>  <span class="p">{</span>
+            <span class="s2">&quot;shapeOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#6bc2e5&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+                <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">draw_control</span><span class="o">.</span><span class="n">polygon</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;shapeOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;#6be5c3&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#6be5c3&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;drawError&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#dd253b&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Oups!&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;allowIntersection&quot;</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="p">}</span>
+        <span class="n">draw_control</span><span class="o">.</span><span class="n">circle</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;shapeOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;#efed69&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#efed69&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">draw_control</span><span class="p">)</span>
+
+    <span class="c1"># def handle_interaction(self, event, **kwargs):</span>
+    <span class="c1">#     if event[&#39;type&#39;] == &#39;click&#39;:</span>
+    <span class="c1">#         lat, lon = event[&#39;coordinates&#39;]</span>
+    <span class="c1">#         marker = Marker(location=(lat, lon))</span>
+    <span class="c1">#         self.marker_cluster.add_layer(marker)</span>
+    <span class="c1">#         self.markers.append(marker)</span>
+
+    <span class="c1">#         # Update the marker popup to display latitude and longitude</span>
+    <span class="c1">#         self.marker_popup.value = f&#39;Latitude: {lat}, Longitude: {lon}&#39;</span>
+    <span class="c1">#         marker.popup = self.marker_popup</span>
+    <span class="c1">#         self.marker_layer.add_layer(marker)</span>
+
+    <span class="c1"># def save_markers_to_csv(self, button):</span>
+    <span class="c1">#     data = {&#39;latitude&#39;: [], &#39;longitude&#39;: []}</span>
+    <span class="c1">#     for marker in self.markers:</span>
+    <span class="c1">#             location = marker.location</span>
+    <span class="c1">#             data[&#39;latitude&#39;].append(location[0])</span>
+    <span class="c1">#             data[&#39;longitude&#39;].append(location[1])</span>
+    <span class="c1">#     df = pd.DataFrame(data)</span>
+    <span class="c1">#     df.to_csv(&#39;markers.csv&#39;, index=False)</span>
+
+    <span class="c1"># def clear_markers(self):</span>
+    <span class="c1">#     for marker in self.markers:</span>
+    <span class="c1">#         self.marker_cluster.remove_layer(marker)</span>
+    <span class="c1">#         self.marker_layer.remove_layer(marker)</span>
+    <span class="c1">#     self.markers = []</span>
+
+    <span class="k">def</span> <span class="nf">add_tile_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds tile layer to the map.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            url - URL of tile layer</span>
+<span class="sd">            name - name of the tile layer</span>
+<span class="sd">            attribution - optional, adds attribution to map</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tile_layer</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+            <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">attribution</span><span class="o">=</span><span class="n">attribution</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">tile_layer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basemap</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        More user-friendly way to specify basemap.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            basemap (must be string)- basemap of user choice.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">xyzservices.providers</span> <span class="k">as</span> <span class="nn">xyz</span>
+
+        <span class="k">if</span> <span class="n">basemap</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s2">&quot;roadmap&quot;</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://mt1.google.com/vt/lyrs=h&amp;x=</span><span class="si">{x}</span><span class="s1">&amp;y=</span><span class="si">{y}</span><span class="s1">&amp;z=</span><span class="si">{z}</span><span class="s1">&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_tile_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">basemap</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">basemap</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s2">&quot;satellite&quot;</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.google.cn/maps/vt?lyrs=s@189&amp;gl=cn&amp;x=</span><span class="si">{x}</span><span class="s1">&amp;y=</span><span class="si">{y}</span><span class="s1">&amp;z=</span><span class="si">{z}</span><span class="s1">&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_tile_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">basemap</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">basemap</span><span class="o">=</span><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;xyz.</span><span class="si">{</span><span class="n">basemap</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">build_url</span><span class="p">()</span>
+                <span class="n">attribution</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">attribution</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_tile_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">basemap</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">attribution</span><span class="o">=</span><span class="n">attribution</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Basemap &#39;</span><span class="si">{</span><span class="n">basemap</span><span class="si">}</span><span class="s2">&#39; not found.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># def add_basemap(m, basemap_name=&#39;OpenStreetMap&#39;, **kwargs):</span>
+    <span class="c1">#     &quot;&quot;&quot;Add a basemap to a map object.&quot;&quot;&quot;</span>
+
+    <span class="c1">#     if isinstance(basemap_name, str):</span>
+    <span class="c1">#         try:</span>
+    <span class="c1">#             basemap = basemaps[basemap_name]</span>
+    <span class="c1">#         except KeyError:</span>
+    <span class="c1">#             raise ValueError(f&#39;Invalid basemap name: {basemap_name}&#39;)</span>
+    <span class="c1">#     else:</span>
+    <span class="c1">#         basemap = basemap_name</span>
+
+    <span class="c1">#     tiles = basemap_to_tiles(basemap, **kwargs)</span>
+    <span class="c1">#     m.add_layer(tiles)</span>
+
+    <span class="c1">#     return tiles</span>
+
+    <span class="k">def</span> <span class="nf">add_shp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Shapefile&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a Shapefile layer to the map.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            data (must be string): The path to the Shapefile.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">geojson</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">__geo_interface__</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">geojson</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">add_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds a GeoJSON layer to the map.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            data (must be dict): The GeoJSON data.</span>
+<span class="sd">            kwargs: Keyword arguments to pass to the GeoJSON layer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">json</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="n">geojson</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">GeoJSON</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">geojson</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Accepts shp file, checks if GeoPandas.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data: geopandas shapefile</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_shp</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">GeoData</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Vector Data&quot;</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Vector Data&quot;</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Vector Data&quot;</span><span class="p">))</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;Not supported filetype&quot;</span>
+
+    <span class="k">def</span> <span class="nf">add_raster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;raster&quot;</span><span class="p">,</span><span class="n">fit_bounds</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds raster to Geolog map</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            url: user-selected url to add raster</span>
+<span class="sd">            name: Optional argument for raster name</span>
+<span class="sd">            fit_bound: optional argument for whether bound of map should be fit&quot;&quot;&quot;</span>
+
+        <span class="kn">import</span> <span class="nn">httpx</span>
+        <span class="n">titiler_endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://titiler.xyz&quot;</span>
+
+        <span class="n">r1</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">titiler_endpoint</span><span class="si">}</span><span class="s2">/cog/info&quot;</span><span class="p">,</span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">url</span><span class="p">,})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="n">r1</span><span class="p">[</span><span class="s2">&quot;bounds&quot;</span><span class="p">]</span>
+
+        <span class="n">r1</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">titiler_endpoint</span><span class="si">}</span><span class="s2">/cog/tilejson.json&quot;</span><span class="p">,</span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">url</span><span class="p">,})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">tile</span> <span class="o">=</span> <span class="n">r1</span><span class="p">[</span><span class="s2">&quot;tiles&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">bbox</span> <span class="o">=</span> <span class="p">[[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]],[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_tile_layer</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">tile</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="s1">&#39;bottomright&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds image to Geolog map</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            url: user-selected url to add image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">ipywidgets</span>
+        <span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">WidgetControl</span>
+        <span class="n">output_widget</span> <span class="o">=</span> <span class="n">ipywidgets</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;border&#39;</span><span class="p">:</span> <span class="s1">&#39;1px solid black&#39;</span><span class="p">})</span>
+        <span class="n">output_widget</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+        <span class="n">widget</span> <span class="o">=</span> <span class="n">ipywidgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;img src=&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1">&quot; width=&quot;</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s1">&quot; height=&quot;</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s1">&quot;&gt;&#39;</span><span class="p">)</span>
+        <span class="n">control</span> <span class="o">=</span> <span class="n">WidgetControl</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">widget</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_toolbar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topright&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Adds toolbar capability to map&quot;&quot;&quot;</span>
+
+        <span class="n">widget_width</span> <span class="o">=</span> <span class="s2">&quot;250px&quot;</span>
+        <span class="n">padding</span> <span class="o">=</span> <span class="s2">&quot;0px 0px 0px 5px&quot;</span>  <span class="c1"># upper, right, bottom, left</span>
+
+        <span class="n">toolbar_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Toolbar&quot;</span><span class="p">,</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;wrench&quot;</span><span class="p">,</span>
+            <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">close_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Close the tool&quot;</span><span class="p">,</span>
+            <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;times&quot;</span><span class="p">,</span>
+            <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span>
+            <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">toolbar</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">toolbar_button</span><span class="p">])</span>
+
+        <span class="k">def</span> <span class="nf">toolbar_click</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]:</span>
+                <span class="n">toolbar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">toolbar_button</span><span class="p">,</span> <span class="n">close_button</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">toolbar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">toolbar_button</span><span class="p">]</span>
+
+        <span class="n">toolbar_button</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">toolbar_click</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">close_click</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]:</span>
+                <span class="n">toolbar_button</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="n">close_button</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="n">toolbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="n">close_button</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">close_click</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+
+        <span class="n">rows</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">GridspecLayout</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">grid_gap</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;65px&quot;</span><span class="p">))</span>
+
+        <span class="n">icons</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;folder-open&quot;</span><span class="p">,</span> <span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="s2">&quot;bluetooth&quot;</span><span class="p">,</span> <span class="s2">&quot;area-chart&quot;</span><span class="p">]</span>
+        <span class="n">button_descs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Load CSV&quot;</span><span class="p">,</span> <span class="s2">&quot;Add Marker&quot;</span><span class="p">,</span> <span class="s2">&quot;Toggle Heatmap&quot;</span><span class="p">,</span> <span class="s2">&quot;Toggle Fullscreen&quot;</span><span class="p">]</span>
+        <span class="n">button_funcs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">load_csv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_marker</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">toggle_heatmap</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">toggle_fullscreen</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+                <span class="n">button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">button_descs</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">rows</span><span class="o">+</span><span class="n">j</span><span class="p">],</span> <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="n">icons</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">rows</span><span class="o">+</span><span class="n">j</span><span class="p">],</span> 
+                                            <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span><span class="p">))</span>
+                <span class="n">button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">button_funcs</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">rows</span><span class="o">+</span><span class="n">j</span><span class="p">])</span>
+                <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">button</span>
+
+        <span class="n">toolbar</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">toolbar_button</span><span class="p">])</span>
+
+        <span class="k">def</span> <span class="nf">toolbar_click</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]:</span>
+                <span class="n">toolbar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">close_button</span><span class="p">,</span> <span class="n">toolbar_button</span><span class="p">]),</span> <span class="n">grid</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">toolbar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">toolbar_button</span><span class="p">]</span>
+
+        <span class="n">toolbar_button</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">toolbar_click</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+
+        <span class="n">toolbar_ctrl</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">WidgetControl</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">toolbar</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">toolbar_ctrl</span><span class="p">)</span>
+
+    <span class="c1"># def _on_load_button_clicked(self, b):</span>
+    <span class="c1">#     # Create a file picker widget</span>
+    <span class="c1">#     input_csv_file_picker = widgets.FileUpload(</span>
+    <span class="c1">#         accept=&#39;.csv&#39;,</span>
+    <span class="c1">#         description=&#39;Select CSV&#39;,</span>
+    <span class="c1">#         multiple=False</span>
+    <span class="c1">#     )</span>
+
+    <span class="c1">#     # Create a handler for when a file is uploaded</span>
+    <span class="c1">#     def handle_upload(change):</span>
+    <span class="c1">#         # Get the uploaded file</span>
+    <span class="c1">#         uploaded_file = list(change[&#39;new&#39;].values())[0]</span>
+    <span class="c1">#         file_content = uploaded_file[&#39;content&#39;]</span>
+
+    <span class="c1">#         # Read the CSV data into a pandas dataframe</span>
+    <span class="c1">#         csv_data = pd.read_csv(io.StringIO(file_content.decode(&#39;utf-8&#39;)))</span>
+
+    <span class="c1">#         # Convert the dataframe into markers and add them to the map</span>
+    <span class="c1">#         markers = []</span>
+    <span class="c1">#         for i, row in csv_data.iterrows():</span>
+    <span class="c1">#             lat = row[&#39;latitude&#39;]</span>
+    <span class="c1">#             lon = row[&#39;longitude&#39;]</span>
+    <span class="c1">#             popup = row[&#39;name&#39;]</span>
+    <span class="c1">#             marker = ipyleaflet.Marker(location=(lat, lon), title=popup)</span>
+    <span class="c1">#             markers.append(marker)</span>
+    <span class="c1">#         self.marker_layer.markers = markers</span>
+
+    <span class="c1">#         # Remove the file picker widget</span>
+    <span class="c1">#         self.toolbar.children = [self.load_button]</span>
+
+    <span class="c1">#     # Attach the handler to the file picker</span>
+    <span class="c1">#     input_csv_file_picker.observe(handle_upload, names=&#39;value&#39;)</span>
+
+    <span class="c1">#     # Replace the toolbar with the file picker widget</span>
+    <span class="c1">#     self.toolbar.children = [input_csv_file_picker]</span>
+
+    <span class="k">def</span> <span class="nf">add_markers_from_csv</span><span class="p">(</span><span class="n">map_obj</span><span class="p">,</span> <span class="n">csv_file</span><span class="p">):</span>
+    <span class="c1"># Read the CSV data into a pandas DataFrame</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;sov_a3&quot;</span><span class="p">,</span> <span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;pop_max&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Iterate over the rows of the DataFrame and create markers for each location</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">])</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;sov_a3&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">) - Population: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;pop_max&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+            <span class="n">map_obj</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+
+
+    <span class="c1"># def to_streamlit(</span>
+    <span class="c1">#     self,</span>
+    <span class="c1">#     width=None,</span>
+    <span class="c1">#     height=600,</span>
+    <span class="c1">#     scrolling=False,</span>
+    <span class="c1">#     add_layer_control=True,</span>
+    <span class="c1">#     bidirectional=False,</span>
+    <span class="c1">#     **kwargs,</span>
+    <span class="c1"># ):</span>
+    <span class="c1">#     &quot;&quot;&quot;Renders `folium.Figure` or `folium.Map` in a Streamlit app. This method is a static Streamlit Component, meaning, no information is passed back from Leaflet on browser interaction.</span>
+
+    <span class="c1">#     Args:</span>
+    <span class="c1">#         width (int, optional): Width of the map. Defaults to None.</span>
+    <span class="c1">#         height (int, optional): Height of the map. Defaults to 600.</span>
+    <span class="c1">#         scrolling (bool, optional): Whether to allow the map to scroll. Defaults to False.</span>
+    <span class="c1">#         add_layer_control (bool, optional): Whether to add the layer control. Defaults to True.</span>
+    <span class="c1">#         bidirectional (bool, optional): Whether to add bidirectional functionality to the map. The streamlit-folium package is required to use the bidirectional functionality. Defaults to False.</span>
+
+    <span class="c1">#     Raises:</span>
+    <span class="c1">#         ImportError: If streamlit is not installed.</span>
+
+    <span class="c1">#     Returns:</span>
+    <span class="c1">#         streamlit.components: components.html object.</span>
+    <span class="c1">#     &quot;&quot;&quot;</span>
+
+    <span class="c1">#     try:</span>
+    <span class="c1">#         import streamlit.components.v1 as components</span>
+
+    <span class="c1">#         if add_layer_control:</span>
+    <span class="c1">#             self.add_layer_control()</span>
+
+    <span class="c1">#         if bidirectional:</span>
+    <span class="c1">#             from streamlit_folium import st_folium</span>
+
+    <span class="c1">#             output = st_folium(self, width=width, height=height)</span>
+    <span class="c1">#             return output</span>
+    <span class="c1">#         else:</span>
+    <span class="c1">#             # if responsive:</span>
+    <span class="c1">#             #     make_map_responsive = &quot;&quot;&quot;</span>
+    <span class="c1">#             #     &lt;style&gt;</span>
+    <span class="c1">#             #     [title~=&quot;st.iframe&quot;] { width: 100%}</span>
+    <span class="c1">#             #     &lt;/style&gt;</span>
+    <span class="c1">#             #     &quot;&quot;&quot;</span>
+    <span class="c1">#             #     st.markdown(make_map_responsive, unsafe_allow_html=True)</span>
+    <span class="c1">#             return components.html(</span>
+    <span class="c1">#                 self.to_html(), width=width, height=height, scrolling=scrolling</span>
+    <span class="c1">#             )</span>
+
+    <span class="c1">#     except Exception as e:</span>
+    <span class="c1">#         raise Exception(e)</span>
+
+    <span class="c1"># #     # widget_width = &quot;250px&quot;</span>
+    <span class="c1"># #     # padding = &quot;0px 0px 0px 5px&quot;</span>
+
+    <span class="c1"># #     toolbar_button = widgets.ToggleButton(</span>
+    <span class="c1"># #         value=False,</span>
+    <span class="c1"># #         tooltip=&quot;Toolbar&quot;,</span>
+    <span class="c1"># #         icon=&quot;wrench&quot;,</span>
+    <span class="c1"># #         layout=widgets.Layout(width=&quot;28px&quot;, height=&quot;28px&quot;, padding=padding),</span>
+    <span class="c1"># #     )</span>
+
+    <span class="c1">#     # close_button = widgets.ToggleButton(</span>
+    <span class="c1">#     #     value=False,</span>
+    <span class="c1">#     #     tooltip=&quot;Close the tool&quot;,</span>
+    <span class="c1">#     #     icon=&quot;times&quot;,</span>
+    <span class="c1">#     #     button_style=&quot;primary&quot;,</span>
+    <span class="c1">#     #     layout=widgets.Layout(height=&quot;28px&quot;, width=&quot;28px&quot;, padding=padding),</span>
+    <span class="c1">#     # )</span>
+
+    <span class="c1">#     # toolbar = widgets.HBox([toolbar_button])</span>
+
+    <span class="c1">#     # def toolbar_click(change):</span>
+    <span class="c1">#     #     if change[&quot;new&quot;]:</span>
+    <span class="c1">#     #         toolbar.children = [toolbar_button, close_button]</span>
+    <span class="c1">#     #     else:</span>
+    <span class="c1">#     #         toolbar.children = [toolbar_button]</span>
+
+    <span class="c1">#     # toolbar_button.observe(toolbar_click, &quot;value&quot;)</span>
+
+    <span class="c1">#     # def close_click(change):</span>
+    <span class="c1">#     #     if change[&quot;new&quot;]:</span>
+    <span class="c1">#     #         toolbar_button.close()</span>
+    <span class="c1">#     #         close_button.close()</span>
+    <span class="c1">#     #         toolbar.close()</span>
+    <span class="c1">#     #         basemap.close()</span>
+
+    <span class="c1">#     # close_button.observe(close_click, &quot;value&quot;)</span>
+
+    <span class="c1">#     # rows = 2</span>
+    <span class="c1">#     # cols = 2</span>
+    <span class="c1">#     # grid = widgets.GridspecLayout(rows, cols, grid_gap=&quot;0px&quot;, layout=widgets.Layout(width=&quot;65px&quot;))</span>
+
+    <span class="c1">#     # icons = [&quot;folder-open&quot;, &quot;map&quot;, &quot;bluetooth&quot;, &quot;area-chart&quot;]</span>
+
+    <span class="c1">#     # for i in range(rows):</span>
+    <span class="c1">#     #     for j in range(cols):</span>
+    <span class="c1">#     #         grid[i, j] = widgets.Button(description=&quot;&quot;, button_style=&quot;primary&quot;, icon=icons[i*rows+j], </span>
+    <span class="c1">#     #                                     layout=widgets.Layout(width=&quot;28px&quot;, padding=&quot;0px&quot;))</span>
+
+    <span class="c1">#     # toolbar = widgets.VBox([toolbar_button])</span>
+
+    <span class="c1">#     basemap = widgets.Dropdown(</span>
+    <span class="c1">#         options=[&#39;OpenStreetmap&#39;,&#39;roadmap&#39;,&#39;satellite&#39;],</span>
+    <span class="c1">#         value=None,</span>
+    <span class="c1">#         description=&quot;Basemap&quot;,</span>
+    <span class="c1">#         style={&#39;description_width&#39;: &#39;initial&#39;},</span>
+    <span class="c1">#         layout=widgets.Layout(width=&#39;250px&#39;)</span>
+    <span class="c1">#     )</span>
+
+    <span class="c1">#     basemap_control = ipyleaflet.WidgetControl(widget=basemap, position=&#39;topright&#39;)</span>
+
+    <span class="c1">#     def change_basemap(change):</span>
+    <span class="c1">#         if change[&#39;new&#39;]:</span>
+    <span class="c1">#             self.add_basemap(basemap.value)</span>
+
+    <span class="c1">#     basemap.observe(change_basemap, names=&#39;value&#39;)</span>
+
+    <span class="c1">#     # self.add_control(ipyleaflet.WidgetControl(widget=widgets.Output(),position=&quot;bottomright&quot;))</span>
+    <span class="c1">#     self.add_control(basemap_control)</span>
+
+    <span class="c1">#     # def toolbar_click(b):</span>
+    <span class="c1">#     #     with b:</span>
+    <span class="c1">#     #         b.clear_output()</span>
+
+    <span class="c1">#     #         if b.icon == &#39;map&#39;:</span>
+    <span class="c1">#     #             self.add_control(basemap_control)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_basemap" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basemap</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_basemap" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>More user-friendly way to specify basemap.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_basemap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">basemap</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    More user-friendly way to specify basemap.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        basemap (must be string)- basemap of user choice.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">xyzservices.providers</span> <span class="k">as</span> <span class="nn">xyz</span>
+
+    <span class="k">if</span> <span class="n">basemap</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s2">&quot;roadmap&quot;</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://mt1.google.com/vt/lyrs=h&amp;x=</span><span class="si">{x}</span><span class="s1">&amp;y=</span><span class="si">{y}</span><span class="s1">&amp;z=</span><span class="si">{z}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_tile_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">basemap</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">basemap</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s2">&quot;satellite&quot;</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.google.cn/maps/vt?lyrs=s@189&amp;gl=cn&amp;x=</span><span class="si">{x}</span><span class="s1">&amp;y=</span><span class="si">{y}</span><span class="s1">&amp;z=</span><span class="si">{z}</span><span class="s1">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_tile_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">basemap</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">basemap</span><span class="o">=</span><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;xyz.</span><span class="si">{</span><span class="n">basemap</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">build_url</span><span class="p">()</span>
+            <span class="n">attribution</span> <span class="o">=</span> <span class="n">basemap</span><span class="o">.</span><span class="n">attribution</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_tile_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">basemap</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">attribution</span><span class="o">=</span><span class="n">attribution</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Basemap &#39;</span><span class="si">{</span><span class="n">basemap</span><span class="si">}</span><span class="s2">&#39; not found.&quot;</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_draw_control" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_draw_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_draw_control" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds drawing control to the map, like lines and polygons.</p>
+<p>Args: 
+    Kwargs - Keyword arguments to pass to search control</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_draw_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds drawing control to the map, like lines and polygons.</span>
+
+<span class="sd">    Args: </span>
+<span class="sd">        Kwargs - Keyword arguments to pass to search control</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">draw_control</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">DrawControl</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">draw_control</span><span class="o">.</span><span class="n">polyline</span> <span class="o">=</span>  <span class="p">{</span>
+        <span class="s2">&quot;shapeOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#6bc2e5&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+            <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">draw_control</span><span class="o">.</span><span class="n">polygon</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;shapeOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;#6be5c3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#6be5c3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;drawError&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#dd253b&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Oups!&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;allowIntersection&quot;</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="p">}</span>
+    <span class="n">draw_control</span><span class="o">.</span><span class="n">circle</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;shapeOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;#efed69&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#efed69&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">draw_control</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_fullscreen_control" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_fullscreen_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;bottomright&#39;</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_fullscreen_control" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds fullscreen control capability to the map.</p>
+<p>Args: 
+    position - where you want controls located.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_fullscreen_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">position</span><span class="o">=</span><span class="s2">&quot;bottomright&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds fullscreen control capability to the map.</span>
+
+<span class="sd">    Args: </span>
+<span class="sd">        position - where you want controls located.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fullscreen_control</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">FullScreenControl</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">fullscreen_control</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_geojson" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_geojson" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a GeoJSON layer to the map.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>data</code></td>
+        <td><code>must be dict</code></td>
+        <td><p>The GeoJSON data.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>kwargs</code></td>
+        <td></td>
+        <td><p>Keyword arguments to pass to the GeoJSON layer.</p></td>
+        <td><code>{}</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_geojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a GeoJSON layer to the map.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        data (must be dict): The GeoJSON data.</span>
+<span class="sd">        kwargs: Keyword arguments to pass to the GeoJSON layer.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">json</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="n">geojson</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">GeoJSON</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">geojson</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_image" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;bottomright&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_image" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds image to Geolog map</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>url</code></td>
+        <td></td>
+        <td><p>user-selected url to add image</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="s1">&#39;bottomright&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds image to Geolog map</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        url: user-selected url to add image</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">ipywidgets</span>
+    <span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">WidgetControl</span>
+    <span class="n">output_widget</span> <span class="o">=</span> <span class="n">ipywidgets</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;border&#39;</span><span class="p">:</span> <span class="s1">&#39;1px solid black&#39;</span><span class="p">})</span>
+    <span class="n">output_widget</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="n">widget</span> <span class="o">=</span> <span class="n">ipywidgets</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;img src=&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1">&quot; width=&quot;</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s1">&quot; height=&quot;</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s1">&quot;&gt;&#39;</span><span class="p">)</span>
+    <span class="n">control</span> <span class="o">=</span> <span class="n">WidgetControl</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">widget</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">control</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_layers_control" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_layers_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_layers_control" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Layers control functionality</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_layers_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Layers control functionality</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">layers_control</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">LayersControl</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">layers_control</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_raster" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_raster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;raster&#39;</span><span class="p">,</span> <span class="n">fit_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_raster" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds raster to Geolog map</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>url</code></td>
+        <td></td>
+        <td><p>user-selected url to add raster</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td></td>
+        <td><p>Optional argument for raster name</p></td>
+        <td><code>&#39;raster&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>fit_bound</code></td>
+        <td></td>
+        <td><p>optional argument for whether bound of map should be fit</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_raster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;raster&quot;</span><span class="p">,</span><span class="n">fit_bounds</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds raster to Geolog map</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        url: user-selected url to add raster</span>
+<span class="sd">        name: Optional argument for raster name</span>
+<span class="sd">        fit_bound: optional argument for whether bound of map should be fit&quot;&quot;&quot;</span>
+
+    <span class="kn">import</span> <span class="nn">httpx</span>
+    <span class="n">titiler_endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://titiler.xyz&quot;</span>
+
+    <span class="n">r1</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">titiler_endpoint</span><span class="si">}</span><span class="s2">/cog/info&quot;</span><span class="p">,</span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">url</span><span class="p">,})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">r1</span><span class="p">[</span><span class="s2">&quot;bounds&quot;</span><span class="p">]</span>
+
+    <span class="n">r1</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">titiler_endpoint</span><span class="si">}</span><span class="s2">/cog/tilejson.json&quot;</span><span class="p">,</span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">url</span><span class="p">,})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">tile</span> <span class="o">=</span> <span class="n">r1</span><span class="p">[</span><span class="s2">&quot;tiles&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">bbox</span> <span class="o">=</span> <span class="p">[[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]],[</span><span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]]]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_tile_layer</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">tile</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_search_control" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_search_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;bottomleft&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_search_control" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds search control to the map.</p>
+<p>Args: 
+    position - Where you would like the search control box to be
+    located. Eg: topleft, bottomright.
+    Kwargs - Keyword arguments to pass to search control</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_search_control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">position</span><span class="o">=</span><span class="s2">&quot;bottomleft&quot;</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds search control to the map.</span>
+
+<span class="sd">    Args: </span>
+<span class="sd">        position - Where you would like the search control box to be</span>
+<span class="sd">        located. Eg: topleft, bottomright.</span>
+<span class="sd">        Kwargs - Keyword arguments to pass to search control</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;url&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://nominatim.openstreetmap.org/search?format=json&amp;q=</span><span class="si">{s}</span><span class="s1">&#39;</span>
+    <span class="n">search_control</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">SearchControl</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">search_control</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_shp" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_shp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Shapefile&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_shp" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds a Shapefile layer to the map.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>data</code></td>
+        <td><code>must be string</code></td>
+        <td><p>The path to the Shapefile.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_shp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Shapefile&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a Shapefile layer to the map.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        data (must be string): The path to the Shapefile.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+    <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">geojson</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">__geo_interface__</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">geojson</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_tile_layer" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_tile_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_tile_layer" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds tile layer to the map.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_tile_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds tile layer to the map.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        url - URL of tile layer</span>
+<span class="sd">        name - name of the tile layer</span>
+<span class="sd">        attribution - optional, adds attribution to map</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tile_layer</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">attribution</span><span class="o">=</span><span class="n">attribution</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">tile_layer</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_toolbar" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_toolbar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;topright&#39;</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_toolbar" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Adds toolbar capability to map</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_toolbar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topright&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds toolbar capability to map&quot;&quot;&quot;</span>
+
+    <span class="n">widget_width</span> <span class="o">=</span> <span class="s2">&quot;250px&quot;</span>
+    <span class="n">padding</span> <span class="o">=</span> <span class="s2">&quot;0px 0px 0px 5px&quot;</span>  <span class="c1"># upper, right, bottom, left</span>
+
+    <span class="n">toolbar_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Toolbar&quot;</span><span class="p">,</span>
+        <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;wrench&quot;</span><span class="p">,</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">close_button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">ToggleButton</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Close the tool&quot;</span><span class="p">,</span>
+        <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;times&quot;</span><span class="p">,</span>
+        <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">toolbar</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">toolbar_button</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">toolbar_click</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]:</span>
+            <span class="n">toolbar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">toolbar_button</span><span class="p">,</span> <span class="n">close_button</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toolbar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">toolbar_button</span><span class="p">]</span>
+
+    <span class="n">toolbar_button</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">toolbar_click</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">close_click</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]:</span>
+            <span class="n">toolbar_button</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">close_button</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">toolbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="n">close_button</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">close_click</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+
+    <span class="n">rows</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">GridspecLayout</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">grid_gap</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;65px&quot;</span><span class="p">))</span>
+
+    <span class="n">icons</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;folder-open&quot;</span><span class="p">,</span> <span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="s2">&quot;bluetooth&quot;</span><span class="p">,</span> <span class="s2">&quot;area-chart&quot;</span><span class="p">]</span>
+    <span class="n">button_descs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Load CSV&quot;</span><span class="p">,</span> <span class="s2">&quot;Add Marker&quot;</span><span class="p">,</span> <span class="s2">&quot;Toggle Heatmap&quot;</span><span class="p">,</span> <span class="s2">&quot;Toggle Fullscreen&quot;</span><span class="p">]</span>
+    <span class="n">button_funcs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">load_csv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_marker</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">toggle_heatmap</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">toggle_fullscreen</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+            <span class="n">button</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">button_descs</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">rows</span><span class="o">+</span><span class="n">j</span><span class="p">],</span> <span class="n">button_style</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="n">icons</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">rows</span><span class="o">+</span><span class="n">j</span><span class="p">],</span> 
+                                        <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&quot;28px&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span><span class="p">))</span>
+            <span class="n">button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">button_funcs</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">rows</span><span class="o">+</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">button</span>
+
+    <span class="n">toolbar</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">VBox</span><span class="p">([</span><span class="n">toolbar_button</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">toolbar_click</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]:</span>
+            <span class="n">toolbar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">close_button</span><span class="p">,</span> <span class="n">toolbar_button</span><span class="p">]),</span> <span class="n">grid</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toolbar</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">toolbar_button</span><span class="p">]</span>
+
+    <span class="n">toolbar_button</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">toolbar_click</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+
+    <span class="n">toolbar_ctrl</span> <span class="o">=</span> <span class="n">ipyleaflet</span><span class="o">.</span><span class="n">WidgetControl</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">toolbar</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="n">toolbar_ctrl</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="geolog.geolog.Map.add_vector" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.Map.add_vector" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Accepts shp file, checks if GeoPandas.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>data</code></td>
+        <td></td>
+        <td><p>geopandas shapefile</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_vector</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Accepts shp file, checks if GeoPandas.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data: geopandas shapefile</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_shp</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">GeoData</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Vector Data&quot;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Vector Data&quot;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Vector Data&quot;</span><span class="p">))</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Not supported filetype&quot;</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="geolog.geolog.calculate_circularity_index" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">calculate_circularity_index</span><span class="p">(</span><span class="n">shp_file</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.calculate_circularity_index" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Calculates the circularity of a shapfile as defined by sqrt(4<em>pi</em>area)/perimeter</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_circularity_index</span><span class="p">(</span><span class="n">shp_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the circularity of a shapfile as defined by sqrt(4*pi*area)/perimeter</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        - shp_file is the location of the shp file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Read in the shapefile using pyshp</span>
+    <span class="n">sf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">shp_file</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sf</span><span class="p">)):</span>
+        <span class="n">sf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;CI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">shape</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">area</span><span class="p">)</span> <span class="o">/</span> <span class="n">shape</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">length</span>
+
+    <span class="c1"># Get the shapefile&#39;s shape records</span>
+    <span class="c1"># shapes = sf.shapes()</span>
+
+
+    <span class="k">return</span> <span class="n">sf</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="geolog.geolog.calculate_shape_complexity" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">calculate_shape_complexity</span><span class="p">(</span><span class="n">shp_file</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.calculate_shape_complexity" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Calculates the complexity ratio of a shapfile as defined by 1 - Area/Convex Hull</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">calculate_shape_complexity</span><span class="p">(</span><span class="n">shp_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the complexity ratio of a shapfile as defined by 1 - Area/Convex Hull</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        - shp_file is the location of the shp file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Read in the shapefile using pyshp</span>
+    <span class="n">sf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">shp_file</span><span class="p">)</span>
+
+    <span class="n">area</span> <span class="o">=</span> <span class="n">shape</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">area</span>
+    <span class="n">convex</span> <span class="o">=</span> <span class="n">shape</span><span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;geometry&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">convex_hull</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sf</span><span class="p">)):</span>
+        <span class="n">sf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;CI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">area</span><span class="o">/</span><span class="n">convex</span>
+
+    <span class="c1"># Get the shapefile&#39;s shape records</span>
+    <span class="c1"># shapes = sf.shapes()</span>
+
+    <span class="k">return</span> <span class="n">sf</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="geolog.geolog.csv_to_shp" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">csv_to_shp</span><span class="p">(</span><span class="n">in_csv</span><span class="p">,</span> <span class="n">out_shp</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.csv_to_shp" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Convert a CSV file with lat/lon information to a shapefile.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>in_csv</code></td>
+        <td><code>str</code></td>
+        <td><p>Path to the input CSV file.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>out_shp</code></td>
+        <td><code>str</code></td>
+        <td><p>Path to the output shapefile.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>x</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the column in the CSV file containing the longitude values (default="longitude").</p></td>
+        <td><code>&#39;longitude&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>y</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the column in the CSV file containing the latitude values (default="latitude").</p></td>
+        <td><code>&#39;latitude&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">csv_to_shp</span><span class="p">(</span><span class="n">in_csv</span><span class="p">,</span> <span class="n">out_shp</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a CSV file with lat/lon information to a shapefile.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        in_csv (str): Path to the input CSV file.</span>
+<span class="sd">        out_shp (str): Path to the output shapefile.</span>
+<span class="sd">        x (str): Name of the column in the CSV file containing the longitude values (default=&quot;longitude&quot;).</span>
+<span class="sd">        y (str): Name of the column in the CSV file containing the latitude values (default=&quot;latitude&quot;).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Read in the CSV file and convert the lat/lon columns to a geometry column</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">in_csv</span><span class="p">)</span>
+    <span class="n">geometry</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">y</span><span class="p">])]</span>
+    <span class="n">crs</span> <span class="o">=</span> <span class="s2">&quot;epsg:4326&quot;</span> <span class="c1"># Assume WGS84 coordinate reference system</span>
+    <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">)</span>
+
+    <span class="c1"># Write the GeoDataFrame to a shapefile</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">out_shp</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;ESRI Shapefile&quot;</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="geolog.geolog.display_polygon" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">display_polygon</span><span class="p">(</span><span class="n">shp_file</span><span class="p">,</span> <span class="n">shp_file_two</span><span class="o">=</span><span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="n">heady</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span></code>
+
+
+<a href="#geolog.geolog.display_polygon" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Displays your shp file in ipyleaflet map</p>
+
+        <details class="quote">
+          <summary>Source code in <code>geolog/geolog.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">display_polygon</span><span class="p">(</span><span class="n">shp_file</span><span class="p">,</span> <span class="n">shp_file_two</span><span class="o">=</span><span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="n">heady</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Displays your shp file in ipyleaflet map</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        - shp_file is the location of the shp file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">shp_file</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">shp_file_two</span> <span class="o">!=</span> <span class="s2">&quot;NA&quot;</span><span class="p">:</span>
+        <span class="n">data2</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">shp_file_two</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">if</span> <span class="n">shp_file_two</span> <span class="o">!=</span> <span class="s2">&quot;NA&quot;</span><span class="p">:</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="n">edgecolor</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">base</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">heady</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2023-05-12
+    
+  </small>
+</div>
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "search.highlight"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c2be25ad.min.js"></script>
+      
+    
+  </body>
+</html>
