@@ -7,3 +7,4 @@ ipywidgets
 pandas
 shapely
 numpy
+pandas
