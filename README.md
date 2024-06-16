@@ -1,22 +1,42 @@
-# geolog
+# Geolog
 
-
-[![image](https://img.shields.io/pypi/v/geolog.svg)](https://pypi.python.org/pypi/geolog)
-[![image](https://img.shields.io/conda/vn/conda-forge/geolog.svg)](https://anaconda.org/conda-forge/geolog)
-
-
-**My senior year GEOG 510 project. This is a package which uses functionality from ipyleaflet and will add more unique functions over the course of the semester.**
-
-
--   Free software: MIT license
--   Documentation: https://whitson-buck.github.io/geolog
-    
+**Geolog** is a Python package developed for geospatial analysis and map creation using `ipyleaflet`. It includes tools for adding drawing controls and other geospatial functionalities.
 
 ## Features
+- `add_draw_controls()`: Enables drawing shapes on maps.
+- More features planned for future updates.
 
--   add_draw_controls() to create shapes on your map
--   more to come.
+## Installation
+```sh
+pip install geolog
+```
+
+## Usage
+### Basic Example
+```python
+from geolog import add_draw_controls
+add_draw_controls()
+```
+
+### Advanced Example
+```python
+from geolog import add_draw_controls
+import ipyleaflet
+
+# Create a map
+m = ipyleaflet.Map(center=(34.05, -118.25), zoom=10)
+
+# Add drawing controls to the map
+add_draw_controls(m)
+
+# Display the map
+m
+```
+
+## License
+This project is licensed under the MIT License.
+
+For more information, visit the [Geolog documentation](https://whitson-buck.github.io/geolog).
 
 ## Credits
-
-This package was created with [Cookiecutter](https://github.com/cookiecutter/cookiecutter) and the [giswqs/pypackage](https://github.com/giswqs/pypackage) project template.
+Created using [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [giswqs/pypackage](https://github.com/giswqs/pypackage) template.
